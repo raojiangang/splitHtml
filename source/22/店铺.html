@@ -1,0 +1,4649 @@
+<!DOCTYPE html>
+      <html>
+      <head>
+      <title>店铺</title>
+      <meta charset="utf-8" />
+      <style>@charset "UTF-8";
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 外层轨道 */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset006pxrgba(255, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  color: #393838;
+  position: relative;
+}
+
+table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 3px 10px;
+}
+
+th {
+  padding: 5px 10px;
+}
+
+a, a:link, a:visited {
+  color: #34495e;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #59d69d;
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+p {
+  padding-left: 10px;
+  margin-bottom: 9px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #404040;
+  line-height: 36px;
+}
+
+h1 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  clear: both;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid #59d69d;
+  padding-left: 8px;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 13px;
+}
+
+hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+blockquote {
+  padding: 13px 13px 21px 15px;
+  margin-bottom: 18px;
+  font-family: georgia, serif;
+  font-style: italic;
+}
+
+blockquote:before {
+  font-size: 40px;
+  margin-left: -10px;
+  font-family: georgia, serif;
+  color: #eee;
+}
+
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+code,
+pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+
+code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+pre {
+  display: block;
+  padding: 14px;
+  margin: 0 0 18px;
+  line-height: 16px;
+  font-size: 11px;
+  border: 1px solid #d9d9d9;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f6f6f6;
+}
+
+pre code {
+  background-color: #f6f6f6;
+  color: #737373;
+  font-size: 11px;
+  padding: 0;
+}
+
+sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+}
+
+@media print {
+  body,
+  code,
+  pre code,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+.table-of-contents {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 260px;
+}
+
+.table-of-contents > ul > li > a {
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.table-of-contents ul {
+  overflow: auto;
+  margin: 0px;
+  height: 100%;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.table-of-contents ul li {
+  padding-left: 20px;
+}
+
+.table-of-contents a {
+  padding: 2px 0px;
+  display: block;
+  text-decoration: none;
+}
+
+.content-right {
+  max-width: 700px;
+  margin-left: 290px;
+  padding-left: 70px;
+  flex-grow: 1;
+}
+.content-right h2:target {
+  padding-top: 80px;
+}
+
+body > p {
+  margin-left: 30px;
+}
+
+body > table {
+  margin-left: 30px;
+}
+
+body > pre {
+  margin-left: 30px;
+}
+
+.curProject {
+  position: fixed;
+  top: 20px;
+  font-size: 25px;
+  color: black;
+  margin-left: -240px;
+  width: 240px;
+  padding: 5px;
+  line-height: 25px;
+  box-sizing: border-box;
+}
+
+.g-doc {
+  margin-top: 56px;
+  padding-top: 24px;
+  display: flex;
+}
+
+.curproject-name {
+  font-size: 42px;
+}
+
+.m-header {
+  background: #32363a;
+  height: 56px;
+  line-height: 56px;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.m-header .title {
+  font-size: 22px;
+  color: #fff;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  margin-left: 16px;
+  padding: 0;
+  line-height: 56px;
+  border: none;
+}
+.m-header .nav {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  right: 32px;
+  top: 0;
+}
+.m-header .nav a {
+  color: #fff;
+  margin-left: 16px;
+  padding: 8px;
+  transition: color .2s;
+}
+.m-header .nav a:hover {
+  color: #59d69d;
+}
+
+.m-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*# sourceMappingURL=defaultTheme.css.map */
+</style>
+      </head>
+      <body>
+        <div class="m-header">
+          <a href="#" style="display: inherit;"><svg class="svg" width="32px" height="32px" viewBox="0 0 64 64" version="1.1"><title>Icon</title><desc>Created with Sketch.</desc><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#FFFFFF" offset="0%"></stop><stop stop-color="#F2F2F2" offset="100%"></stop></linearGradient><circle id="path-2" cx="31.9988602" cy="31.9988602" r="2.92886048"></circle><filter x="-85.4%" y="-68.3%" width="270.7%" height="270.7%" filterUnits="objectBoundingBox" id="filter-3"><feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.159703351 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix></filter></defs><g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="大屏幕"><g id="Icon"><circle id="Oval-1" fill="url(#linearGradient-1)" cx="32" cy="32" r="32"></circle><path d="M36.7078009,31.8054514 L36.7078009,51.7110548 C36.7078009,54.2844537 34.6258634,56.3695395 32.0579205,56.3695395 C29.4899777,56.3695395 27.4099998,54.0704461 27.4099998,51.7941246 L27.4099998,31.8061972 C27.4099998,29.528395 29.4909575,27.218453 32.0589004,27.230043 C34.6268432,27.241633 36.7078009,29.528395 36.7078009,31.8054514 Z" id="blue" fill="#2359F1" fill-rule="nonzero"></path><path d="M45.2586091,17.1026914 C45.2586091,17.1026914 45.5657231,34.0524383 45.2345291,37.01141 C44.9033351,39.9703817 43.1767091,41.6667796 40.6088126,41.6667796 C38.040916,41.6667796 35.9609757,39.3676862 35.9609757,37.0913646 L35.9609757,17.1034372 C35.9609757,14.825635 38.0418959,12.515693 40.6097924,12.527283 C43.177689,12.538873 45.2586091,14.825635 45.2586091,17.1026914 Z" id="green" fill="#57CF27" fill-rule="nonzero" transform="translate(40.674608, 27.097010) rotate(60.000000) translate(-40.674608, -27.097010) "></path><path d="M28.0410158,17.0465598 L28.0410158,36.9521632 C28.0410158,39.525562 25.9591158,41.6106479 23.3912193,41.6106479 C20.8233227,41.6106479 18.7433824,39.3115545 18.7433824,37.035233 L18.7433824,17.0473055 C18.7433824,14.7695034 20.8243026,12.4595614 23.3921991,12.4711513 C25.9600956,12.4827413 28.0410158,14.7695034 28.0410158,17.0465598 Z" id="red" fill="#FF561B" fill-rule="nonzero" transform="translate(23.392199, 27.040878) rotate(-60.000000) translate(-23.392199, -27.040878) "></path><g id="inner-round"><use fill="black" fill-opacity="1" filter="url(#filter-3)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use><use fill="#F7F7F7" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use></g></g></g></g></svg></a>
+          <a href="#"><h1 class="title">YAPI 接口文档</h1></a>
+          <div class="nav">
+            <a href="https://yapi.ymfe.org/">YApi</a>
+          </div>
+        </div>
+        <div class="g-doc">
+          <div class="table-of-contents"><ul><li><a href="#u4f18u60e0u5238u5546u57ce">优惠券商城</a><ul><li><a href="#u4ecau65e5u7279u60e00a3ca20id3du4ecau65e5u7279u60e03e203ca3e">今日特惠
+<a id=今日特惠> </a></a></li><li><a href="#u4ecau65e5u63a8u8350u5206u98750a3ca20id3du4ecau65e5u63a8u8350u5206u98753e203ca3e">今日推荐分页
+<a id=今日推荐分页> </a></a></li><li><a href="#u4f18u60e0u5238u8be6u60c50a3ca20id3du4f18u60e0u5238u8be6u60c53e203ca3e">优惠券详情
+<a id=优惠券详情> </a></a></li><li><a href="#u4f18u60e0u5238u8d2du4e700a3ca20id3du4f18u60e0u5238u8d2du4e703e203ca3e">优惠券购买
+<a id=优惠券购买> </a></a></li><li><a href="#u4f18u60e0u5238u641cu7d220a3ca20id3du4f18u60e0u5238u641cu7d223e203ca3e">优惠券搜索
+<a id=优惠券搜索> </a></a></li><li><a href="#u4f18u60e0u5238u70b9u8d5e0a3ca20id3du4f18u60e0u5238u70b9u8d5e3e203ca3e">优惠券点赞
+<a id=优惠券点赞> </a></a></li><li><a href="#u4f18u60e0u5238u53d6u6d88u70b9u8d5e0a3ca20id3du4f18u60e0u5238u53d6u6d88u70b9u8d5e3e203ca3e">优惠券取消点赞
+<a id=优惠券取消点赞> </a></a></li></ul></li><li><a href="#u5546u54c1u591au89c4u683c">商品多规格</a><ul><li><a href="#u5361u5238u89c4u683c0a3ca20id3du5361u5238u89c4u683c3e203ca3e">卡券规格
+<a id=卡券规格> </a></a></li><li><a href="#u5206u7c7bu5217u88680a3ca20id3du5206u7c7bu5217u88683e203ca3e">分类列表
+<a id=分类列表> </a></a></li><li><a href="#u5206u7c7bu521bu5efa0a3ca20id3du5206u7c7bu521bu5efa3e203ca3e">分类创建
+<a id=分类创建> </a></a></li><li><a href="#u5c5eu6027u521bu5efa0a3ca20id3du5c5eu6027u521bu5efa3e203ca3e">属性创建
+<a id=属性创建> </a></a></li></ul></li><li><a href="#u6211u7684u4f18u60e0u5238">我的优惠券</a><ul><li><a href="#u4f18u60e0u5238u8be6u60c50a3ca20id3du4f18u60e0u5238u8be6u60c53e203ca3e">优惠券详情
+<a id=优惠券详情> </a></a></li><li><a href="#u4f18u60e0u5238u9000u6b3e0a3ca20id3du4f18u60e0u5238u9000u6b3e3e203ca3e">优惠券退款
+<a id=优惠券退款> </a></a></li><li><a href="#u5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u52380a3ca20id3du5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u52383e203ca3e">商家核销用户的优惠券
+<a id=商家核销用户的优惠券> </a></a></li><li><a href="#u5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u5238u7684u7ed3u679cu67e5u8be20a3ca20id3du5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u5238u7684u7ed3u679cu67e5u8be23e203ca3e">商家核销用户的优惠券的结果查询
+<a id=商家核销用户的优惠券的结果查询> </a></a></li><li><a href="#u6211u7684u4f18u60e0u52380a3ca20id3du6211u7684u4f18u60e0u52383e203ca3e">我的优惠券
+<a id=我的优惠券> </a></a></li><li><a href="#u6211u7684u6709u6548u4f18u60e0u52380a3ca20id3du6211u7684u6709u6548u4f18u60e0u52383e203ca3e">我的有效优惠券
+<a id=我的有效优惠券> </a></a></li><li><a href="#u6838u9500u4f18u60e0u52380a3ca20id3du6838u9500u4f18u60e0u52383e203ca3e">核销优惠券
+<a id=核销优惠券> </a></a></li><li><a href="#u7528u6237u5361u5238u4e8cu7ef4u78010a3ca20id3du7528u6237u5361u5238u4e8cu7ef4u78013e203ca3e">用户卡券二维码
+<a id=用户卡券二维码> </a></a></li><li><a href="#u8ba2u5355u4e2du5fc3u6211u7684u4f18u60e0u52380a3ca20id3du8ba2u5355u4e2du5fc3u6211u7684u4f18u60e0u52383e203ca3e">订单中心我的优惠券
+<a id=订单中心我的优惠券> </a></a></li><li><a href="#u95e8u5e97u652fu4ed80a3ca20id3du95e8u5e97u652fu4ed83e203ca3e">门店支付
+<a id=门店支付> </a></a></li></ul></li><li><a href="#u4f18u60e0u5238u5546u5bb6u540eu53f0">优惠券商家后台</a><ul><li><a href="#u4f18u60e0u5238u4e0au67b6u6216u4e0bu67b60a3ca20id3du4f18u60e0u5238u4e0au67b6u6216u4e0bu67b63e203ca3e">优惠券上架或下架
+<a id=优惠券上架或下架> </a></a></li><li><a href="#u4f18u60e0u5238u7f16u8f910a3ca20id3du4f18u60e0u5238u7f16u8f913e203ca3e">优惠券编辑
+<a id=优惠券编辑> </a></a></li><li><a href="#u5546u5bb6u540eu53f0u7edfu8ba10a3ca20id3du5546u5bb6u540eu53f0u7edfu8ba13e203ca3e">商家后台统计
+<a id=商家后台统计> </a></a></li><li><a href="#u8ba2u5355u4e2du5fc30a3ca20id3du8ba2u5355u4e2du5fc33e203ca3e">订单中心
+<a id=订单中心> </a></a></li><li><a href="#u8ba2u5355u7ba1u74060a3ca20id3du8ba2u5355u7ba1u74063e203ca3e">订单管理
+<a id=订单管理> </a></a></li><li><a href="#u9000u6b3eu8be6u60c50a3ca20id3du9000u6b3eu8be6u60c53e203ca3e">退款详情
+<a id=退款详情> </a></a></li><li><a href="#u7cbeu9009u4f18u60e0u5238uff08u5403u8d27u5723u5730u53d8u7f8eu57fau5730u73a9u55e8u4e00u4e0buff090a3ca20id3du7cbeu9009u4f18u60e0u5238uff08u5403u8d27u5723u5730u53d8u7f8eu57fau5730u73a9u55e8u4e00u4e0buff093e203ca3e">精选优惠券（吃货圣地/变美基地/玩嗨一下）
+<a id=精选优惠券（吃货圣地/变美基地/玩嗨一下）> </a></a></li></ul></li><li><a href="#u9996u9875">首页</a><ul><li><a href="#u9644u8fd1u7684u95e8u5e97uff08u5730u56feuff090a3ca20id3du9644u8fd1u7684u95e8u5e97uff08u5730u56feuff093e203ca3e">附近的门店（地图）
+<a id=附近的门店（地图）> </a></a></li><li><a href="#u9644u8fd1u7684u95e8u5e97uff08u5217u8868uff090a3ca20id3du9644u8fd1u7684u95e8u5e97uff08u5217u8868uff093e203ca3e">附近的门店（列表）
+<a id=附近的门店（列表）> </a></a></li><li><a href="#u95e8u5e97u4e3bu98750a3ca20id3du95e8u5e97u4e3bu98753e203ca3e">门店主页
+<a id=门店主页> </a></a></li></ul></li><li><a href="#u7533u8bf7">申请</a><ul><li><a href="#u9009u62e9u95e8u5e97u7c7bu578b0a3ca20id3du9009u62e9u95e8u5e97u7c7bu578b3e203ca3e">选择门店类型
+<a id=选择门店类型> </a></a></li><li><a href="#u95e8u5e97u7533u8bf7u8ba4u8bc10a3ca20id3du95e8u5e97u7533u8bf7u8ba4u8bc13e203ca3e">门店申请认证
+<a id=门店申请认证> </a></a></li><li><a href="#u95e8u5e97u8ba4u8bc1u652fu4ed80a3ca20id3du95e8u5e97u8ba4u8bc1u652fu4ed83e203ca3e">门店认证支付
+<a id=门店认证支付> </a></a></li><li><a href="#u95e8u5e97u7167u7247u63d0u4ea4u5ba1u68380a3ca20id3du95e8u5e97u7167u7247u63d0u4ea4u5ba1u68383e203ca3e">门店照片提交审核
+<a id=门店照片提交审核> </a></a></li><li><a href="#u95e8u5e97u7167u7247u5ba1u68380a3ca20id3du95e8u5e97u7167u7247u5ba1u68383e203ca3e">门店照片审核
+<a id=门店照片审核> </a></a></li></ul></li><li><a href="#u641cu7d22">搜索</a><ul><li><a href="#u5730u533au70edu95e8u95e8u5e970a3ca20id3du5730u533au70edu95e8u95e8u5e973e203ca3e">地区热门门店
+<a id=地区热门门店> </a></a></li><li><a href="#u95e8u5e97u641cu7d220a3ca20id3du95e8u5e97u641cu7d223e203ca3e">门店搜索
+<a id=门店搜索> </a></a></li></ul></li><li><a href="#u6211u7684u95e8u5e97">我的门店</a><ul><li><a href="#u6211u7684u95e8u5e97u4e0au7ebf0a3ca20id3du6211u7684u95e8u5e97u4e0au7ebf3e203ca3e">我的门店上线
+<a id=我的门店上线> </a></a></li><li><a href="#u6211u7684u95e8u5e97u4e0bu7ebf0a3ca20id3du6211u7684u95e8u5e97u4e0bu7ebf3e203ca3e">我的门店下线
+<a id=我的门店下线> </a></a></li><li><a href="#u6211u7684u95e8u5e970a3ca20id3du6211u7684u95e8u5e973e203ca3e">我的门店
+<a id=我的门店> </a></a></li><li><a href="#u6211u7684u95e8u5e97u7f16u8f910a3ca20id3du6211u7684u95e8u5e97u7f16u8f913e203ca3e">我的门店编辑
+<a id=我的门店编辑> </a></a></li></ul></li></ul></div>
+          <div id="right" class="content-right">
+           <h1 class="curproject-name"> 店铺 </h1> 
+ 彩缤店铺系统
+<h1 id="u4f18u60e0u5238u5546u57ce">优惠券商城</h1>
+<p></p>
+<h2 id="u4ecau65e5u7279u60e00a3ca20id3du4ecau65e5u7279u60e03e203ca3e">今日特惠
+<a id=今日特惠> </a></h2>
+<p></p>
+<h3 id="">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/preferential</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;
+&nbsp;&nbsp;&nbsp; ]
+}
+</code></pre>
+<h3 id="-2">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-3">返回数据</h3>
+<pre><code class="language-javascript">{
+    &quot;code&quot;: 0,
+    &quot;msg&quot;: &quot;OK&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;标题&quot;,
+            &quot;icon&quot;: &quot;图片&quot;,
+            &quot;status&quot;: &quot;状态：0：未到上架时间、1：上架、2：下架、3：过期）&quot;,
+            &quot;tradeAmount&quot;: &quot;原价或抵用价格&quot;,
+            &quot;payAmount&quot;: &quot;支付金额&quot;,
+            &quot;quota&quot;: &quot;派发数量&quot;,
+            &quot;surplus&quot;: &quot;剩余数量&quot;,
+            &quot;count&quot;: {
+                &quot;read&quot;: &quot;浏览数&quot;,
+                &quot;like&quot;: &quot;点赞数&quot;,
+                &quot;share&quot;: &quot;分享数&quot;
+            },
+            &quot;shop&quot;: {
+                &quot;id&quot;:&quot;&quot;,
+                &quot;name&quot;:&quot;店铺名称&quot;,
+                &quot;headImage&quot;:&quot;店铺头像&quot;,
+                &quot;perCapitaConsumption&quot;:&quot;人均消费&quot;,
+                &quot;autograph&quot;:&quot;门店签名&quot;,
+                &quot;address&quot;:&quot;详细地址&quot;,
+                &quot;telephone&quot;:&quot;联系电话&quot;
+            }
+        }, {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;标题&quot;,
+            &quot;icon&quot;: &quot;图片&quot;,
+            &quot;status&quot;: &quot;状态：0：未到上架时间、1：上架、2：下架、3：过期）&quot;,
+            &quot;tradeAmount&quot;: &quot;原价或抵用价格&quot;,
+            &quot;payAmount&quot;: &quot;支付金额&quot;,
+            &quot;quota&quot;: &quot;派发数量&quot;,
+            &quot;surplus&quot;: &quot;剩余数量&quot;,
+            &quot;count&quot;: {
+                &quot;read&quot;: &quot;浏览数&quot;,
+                &quot;like&quot;: &quot;点赞数&quot;,
+                &quot;share&quot;: &quot;分享数&quot;
+            },
+            &quot;shop&quot;: {
+                &quot;id&quot;:&quot;&quot;,
+                &quot;name&quot;:&quot;店铺名称&quot;,
+                &quot;headImage&quot;:&quot;店铺头像&quot;,
+                &quot;perCapitaConsumption&quot;:&quot;人均消费&quot;,
+                &quot;autograph&quot;:&quot;门店签名&quot;,
+                &quot;address&quot;:&quot;详细地址&quot;,
+                &quot;telephone&quot;:&quot;联系电话&quot;
+            }
+        }  
+    ]
+}
+</code></pre>
+<h2 id="u4ecau65e5u63a8u8350u5206u98750a3ca20id3du4ecau65e5u63a8u8350u5206u98753e203ca3e">今日推荐分页
+<a id=今日推荐分页> </a></h2>
+<p></p>
+<h3 id="-4">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/recommend/page/{type}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code data-language="json" class="lang-json">
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "pageSize": 5,
+    "totalPage": 3,
+    "totalResult": 11,
+    "currentPage": 1,
+    "currentResult": 0,
+    "list": [ {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "location":{
+                "lng":"经度",
+                "lat":"纬度",
+                "distance":"距离（米）"
+            },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+    ]
+}
+}
+}
+</code></pre>
+<h3 id="-5">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>latest</td>
+<td>latest：最新的、nearby：附近的</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td>地区编号</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-6">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u4f18u60e0u5238u8be6u60c50a3ca20id3du4f18u60e0u5238u8be6u60c53e203ca3e">优惠券详情
+<a id=优惠券详情> </a></h2>
+<p></p>
+<h3 id="-7">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/{id}/details</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>商城优惠券详情页，状态为待上架的不允许购买</p>
+<p>异常返回</p>
+<ul>
+<li>4700 优惠券未找到</li>
+<li>4710 优惠券已下架</li>
+<li>4711 优惠券已过期</li>
+</ul>
+<p>返回字段描述</p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"OK",
+    "data":{
+        "id":1,
+        "type":"类型，0：抵用券、1：套餐券",
+        "category":"分类，0：美食、1：休闲娱乐、2：美容/美发",
+        "subCategory":"二级分类",
+        "title":"标题",
+        "icon":"图片",
+        "rules": [
+            "随时退",
+            "提前N小时退款",
+            "购买后不允许退款",
+            "购买后退款80%",
+            "到期自动退",
+            "限购N份"
+        ],
+        "detail":"套餐券：套餐内容",
+        "expiryDate":"有效期（开始时间-结束时间），为 null 不显示，状态为待上架：xxxx上架、上架：有效期至xxxx",
+        "startTime":"开始时间",
+        "endTime":"结束时间",
+        "usedWeekday":[
+            "周二（usedWeekday为null不显示）"
+        ],
+        "usedTime":[
+            "开始时间-结束时间（usedTime为null不显示）"
+        ],
+        "note":"使用规则",
+        "liked":"是否点赞，0：未点赞、1：点赞，未登录用户显示未点赞",
+        "media":[
+            "图文详情链接"
+        ],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotationChart":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"轮播图"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+        "status":"状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+        "tradeAmount":"原价或抵用价格",
+        "payAmount":"支付金额",
+        "refundAdvanceHours":"提前 N 小时退款，0：随时退，过期自动退",
+        "refundAmount":"退款金额",
+        "refundRate":"退款比例",
+        "divideAmount":"分佣金额",
+        "divideRate":"分佣比例",
+        "quota":"派发数量",
+        "surplus":"剩余数量",
+        "isOnlineSales":"是否支持线上销售，0：否，1：是",
+        "isSpecs":"是否支持多规格（SKU），0：否，1：是",
+"skuInfo":{
+    "sku":[{
+            "id":1,
+            "name":"品质",
+            "attr":[
+                {
+                    "id":1,
+                    "name":"单J"
+                },
+                {
+                    "id":6,
+                    "name":"双J"
+                }
+            ]
+        }, {
+            "id":2,
+            "name":"重量",
+            "attr":[
+                {
+                    "id":2,
+                    "name":"5斤"
+                },
+                {
+                    "id":3,
+                    "name":"10斤"
+                }
+            ]
+        }
+    ],
+    "data":[
+        {
+            "id":2,
+            "code":"1_2",
+            "tradeAmount":498,
+            "payAmount":338,
+            "divideAmount":50,
+            "refundAmount":338,
+            "quota":1000,
+            "surplus":1000
+        },
+        {
+            "id":2,
+            "code":"1_3",
+            "tradeAmount":90,
+            "payAmount":75,
+            "divideAmount":15,
+            "refundAmount":75,
+            "quota":500,
+            "surplus":500
+        },
+        {
+            "id":3,
+            "code":"6_2",
+            "tradeAmount":324,
+            "payAmount":258,
+            "divideAmount":60,
+            "refundAmount":258,
+            "quota":500,
+            "surplus":0
+        },
+        {
+            "id":4,
+            "code":"6_3",
+            "tradeAmount":90,
+            "payAmount":75,
+            "divideAmount":15,
+            "refundAmount":75,
+            "quota":500,
+            "surplus":500
+        }
+    ]
+},
+        "count":{
+            "read":"浏览数",
+            "like":"点赞数",
+            "share":"分享数"
+        },
+        "location":{
+            "lng":"经度",
+            "lat":"纬度",
+            "distance":"距离（米）"
+        },
+        "shop":{
+            "id":"",
+            "name":"店铺名称",
+            "headImage":"店铺头像",
+            "perCapitaConsumption":"人均消费",
+            "autograph":"门店签名",
+            "address":"详细地址",
+            "telephone":"联系电话",
+            "businessLicense":"营业执照图片",
+        }
+    }
+}
+</code></pre>
+<h3 id="-8">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>1</td>
+<td>优惠券ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-9">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u4f18u60e0u5238u8d2du4e700a3ca20id3du4f18u60e0u5238u8d2du4e703e203ca3e">优惠券购买
+<a id=优惠券购买> </a></h2>
+<p></p>
+<h3 id="-10">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/buy</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p><span class="colour" style="color:rgb(85, 85, 85)">商城优惠券详情购买页，状态为待上架的不允许购买，限制最多购买5个</span><br>
+<span class="colour" style="color:rgb(85, 85, 85)">扩展参数id为购买id，购买多个时，生成多条记录</span></p>
+<p><span class="colour" style="color:rgb(85, 85, 85)">异常返回</span></p>
+<ul>
+<li>4700 优惠券未找到</li>
+<li>4701 优惠券购买数量超过限制</li>
+<li>4702 优惠券购买数量需要大于0</li>
+<li>4710 优惠券已下架</li>
+<li>4711 优惠券已过期</li>
+</ul>
+<p><span class="colour" style="color:rgb(85, 85, 85)">返回字段描述</span></p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "500"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "100",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "body": "购买抵用券",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "extendParams": "{\"id\":"1,2,3"}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "balance": "100",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payment": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "alipay": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "weixin": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "balance": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+}
+</code></pre>
+<h3 id="-11">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-12">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u4f18u60e0u5238u641cu7d220a3ca20id3du4f18u60e0u5238u641cu7d223e203ca3e">优惠券搜索
+<a id=优惠券搜索> </a></h2>
+<p></p>
+<h3 id="-13">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/search</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 3,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "商品标题商品标题火锅xx",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "http://static.caibinshenghuo.com/b70787eae2d493747deadcaef0910be8.png",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 100,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 80,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": 100,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": 92,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": 30,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": 35,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": 50
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 94,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name": "嘻哈帝国",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage": "http://static.caibinshenghuo.com/2e3eaf8276b9b00de8837536c955fbe8.jpg",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone": "13133838216",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption": "200",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph": "快来试试吧",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address": "江西省南昌市东湖区沙井街道学府大道895慧谷创意产业园",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "businessLicense": "http://static.caibinshenghuo.com/745cb2bb5f514278e2ab2e65c1bde8df.jpeg"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lng": 115.815753,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lat": 28.66284,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "468.0"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 2,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "商品标题商品标题刚哥火锅",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "http://static.caibinshenghuo.com/b70787eae2d493747deadcaef0910be8.png",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 1000,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 500,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 93,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name": "泰纳专业抢劫团伙",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage": "http://static.caibinshenghuo.com/0405257d159c3c1af7a114668e581f63.png",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone": "13888888888",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph": "一次成功，百万富翁。\n别犹豫了，赶快加入我们吧。\n搏一搏，单车变摩托！",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address": "江西省南昌市东湖区沙井街道学府大道895慧谷创意产业园",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "businessLicense": "http://static.caibinshenghuo.com/d8430e9225705e13b982bebaf2284300.jpeg"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lng": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lat": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "1.2435922E7"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 4,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "商品标题商品标题火锅xx",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "http://static.caibinshenghuo.com/b70787eae2d493747deadcaef0910be8.png",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 1000,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 300,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": 100,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": 98,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": 40,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": 30,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": 50
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 96,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name": "一乐拉面",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage": "http://static.caibinshenghuo.com/6952d49abc27aa6c3e01dfa3cbb45e63.jpg",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone": "13970063992",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph": "666666",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address": "江西省南昌市东湖区沙井街道学府大道895慧谷创意产业园",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "businessLicense": null
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lng": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lat": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "distance": "1.2435922E7"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; ]
+}
+</code></pre>
+<h3 id="-14">请求参数</h3>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h3 id="-15">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u4f18u60e0u5238u70b9u8d5e0a3ca20id3du4f18u60e0u5238u70b9u8d5e3e203ca3e">优惠券点赞
+<a id=优惠券点赞> </a></h2>
+<p></p>
+<h3 id="-16">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/{id}/like</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p>异常返回</p>
+<ul>
+<li>4700 优惠券未找到</li>
+</ul>
+<pre><code>{
+&nbsp;&nbsp;&nbsp;&nbsp;"code": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;"msg": "OK",
+&nbsp;&nbsp;&nbsp;&nbsp;"data": null
+}
+</code></pre>
+<h3 id="-17">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="u4f18u60e0u5238u53d6u6d88u70b9u8d5e0a3ca20id3du4f18u60e0u5238u53d6u6d88u70b9u8d5e3e203ca3e">优惠券取消点赞
+<a id=优惠券取消点赞> </a></h2>
+<p></p>
+<h3 id="-18">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/{id}/like/cancel</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p>异常返回</p>
+<ul>
+<li>4700 优惠券未找到</li>
+</ul>
+<pre><code>{
+&nbsp;&nbsp;&nbsp;&nbsp;"code": 0,
+&nbsp;&nbsp;&nbsp;&nbsp;"msg": "OK",
+&nbsp;&nbsp;&nbsp;&nbsp;"data": null
+}
+</code></pre>
+<h3 id="-19">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="u5546u54c1u591au89c4u683c">商品多规格</h1>
+<p></p>
+<h2 id="u5361u5238u89c4u683c0a3ca20id3du5361u5238u89c4u683c3e203ca3e">卡券规格
+<a id=卡券规格> </a></h2>
+<p></p>
+<h3 id="-20">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/sku/{couponId}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>sku属性与数据以code相对应，code为多个属性id以“_”连接<br>
+库存surplus为0时，相应属性不可选</p>
+<pre><code data-language="json" class="lang-json">{
+    "sku":[
+      {
+        "id": 8,
+        "name": "品质",
+        "attr": [
+          {
+            "id": 1,
+            "name": "J"
+          },
+          {
+            "id": 6,
+            "name": "JJ"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "重量",
+        "attr": [
+          {
+            "id": 28,
+            "name": "2斤"
+          },
+          {
+            "id": 29,
+            "name": "5斤"
+          }
+        ]
+      }
+    ],
+    "data":[
+        {
+            "id":2,
+            "code":"1_2",
+            "tradeAmount":498,
+            "payAmount":338,
+            "divideAmount":50,
+            "refundAmount":338,
+            "quota":1000,
+            "surplus":1000
+        },
+        {
+            "id":2,
+            "code":"1_3",
+            "tradeAmount":90,
+            "payAmount":75,
+            "divideAmount":15,
+            "refundAmount":75,
+            "quota":500,
+            "surplus":500
+        },
+        {
+            "id":3,
+            "code":"6_2",
+            "tradeAmount":324,
+            "payAmount":258,
+            "divideAmount":60,
+            "refundAmount":258,
+            "quota":500,
+            "surplus":0
+        },
+        {
+            "id":4,
+            "code":"6_3",
+            "tradeAmount":90,
+            "payAmount":75,
+            "divideAmount":15,
+            "refundAmount":75,
+            "quota":500,
+            "surplus":500
+        }
+    ]
+}
+</code></pre>
+<h3 id="-21">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deviceId</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>couponId</td>
+<td>77</td>
+<td>卡券ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-22">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5206u7c7bu5217u88680a3ca20id3du5206u7c7bu5217u88683e203ca3e">分类列表
+<a id=分类列表> </a></h2>
+<p></p>
+<h3 id="-23">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/category</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>couponId非必需参数，不传则used为0
+used，当前卡券是否使用此分类或属性
+{
+  "code": 0,
+  "msg": "OK",
+  "data": [
+    {
+      "id": 13,
+      "name": "重量2",
+      "used": 0,
+      "attr": []
+    },
+    {
+      "id": 12,
+      "name": "\"xxx\"",
+      "used": 0,
+      "attr": []
+    },
+    {
+      "id": 11,
+      "name": "\"xx\"",
+      "used": 0,
+      "attr": [
+        {
+          "id": 18,
+          "name": "\"2\"",
+          "used": 0
+        },
+        {
+          "id": 17,
+          "name": "\"1\"",
+          "used": 0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "尺寸",
+      "used": 0,
+      "attr": [
+        {
+          "id": 16,
+          "name": "45",
+          "used": 0
+        },
+        {
+          "id": 15,
+          "name": "44",
+          "used": 0
+        },
+        {
+          "id": 14,
+          "name": "43",
+          "used": 0
+        },
+        {
+          "id": 13,
+          "name": "42",
+          "used": 0
+        },
+        {
+          "id": 12,
+          "name": "41",
+          "used": 0
+        },
+        {
+          "id": 11,
+          "name": "40",
+          "used": 0
+        },
+        {
+          "id": 10,
+          "name": "39",
+          "used": 0
+        },
+        {
+          "id": 9,
+          "name": "38",
+          "used": 0
+        },
+        {
+          "id": 8,
+          "name": "37",
+          "used": 0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "重量",
+      "used": 1,
+      "attr": [
+        {
+          "id": 7,
+          "name": "1斤",
+          "used": 1
+        },
+        {
+          "id": 3,
+          "name": "5KG",
+          "used": 1
+        },
+        {
+          "id": 2,
+          "name": "1KG",
+          "used": 1
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "品质",
+      "used": 1,
+      "attr": [
+        {
+          "id": 6,
+          "name": "JJ",
+          "used": 1
+        },
+        {
+          "id": 1,
+          "name": "J",
+          "used": 1
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h3 id="-24">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>couponId</td>
+<td>否</td>
+<td>77</td>
+<td>卡券ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-25">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> id</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> name</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-2><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> used</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u5206u7c7bu521bu5efa0a3ca20id3du5206u7c7bu521bu5efa3e203ca3e">分类创建
+<a id=分类创建> </a></h2>
+<p></p>
+<h3 id="-26">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/category/create</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+    "code": 0, 
+    "msg": "OK", 
+    "data": {
+        "id": 16, 
+        "name": "种类", 
+        "used": 0
+    }
+}
+</code></pre>
+<h3 id="-27">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分类名称</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-28">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">数据ID</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u5c5eu6027u521bu5efa0a3ca20id3du5c5eu6027u521bu5efa3e203ca3e">属性创建
+<a id=属性创建> </a></h2>
+<p></p>
+<h3 id="-29">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/attr/{categoryId}/create</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+    "code": 0, 
+    "msg": "OK", 
+    "data": {
+        "id": 31, 
+        "name": "野味", 
+        "used": 0
+    }
+}
+</code></pre>
+<h3 id="-30">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>categoryId</td>
+<td></td>
+<td>分类ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> name</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">属性名称</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-31">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">数据ID</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h1 id="u6211u7684u4f18u60e0u5238">我的优惠券</h1>
+<p></p>
+<h2 id="u4f18u60e0u5238u8be6u60c50a3ca20id3du4f18u60e0u5238u8be6u60c53e203ca3e-2">优惠券详情
+<a id=优惠券详情> </a></h2>
+<p></p>
+<h3 id="-32">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/mine/info/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>商城优惠券详情页</p>
+<p>异常返回</p>
+<ul>
+<li>4700 优惠券未找到</li>
+</ul>
+<p>返回字段描述</p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"OK",
+    "data":{
+        "id":1,
+        "type":"类型，0：抵用券、1：套餐券",
+        "category":"分类，0：美食、1：休闲娱乐、2：美容/美发",
+        "subCategory":"二级分类",
+        "title":"标题",
+        "icon":"图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payTime":"2019-01-20", //支付时间
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "consumeTime":"2019-01-20",//使用时间
+        "rules": [
+            "随时退",
+            "提前N小时退款",
+            "购买后不允许退款",
+            "购买后退款80%",
+            "到期自动退",
+            "限购N份"
+        ],
+        "detail":"套餐券：套餐内容",
+        "expireDate": "有效期至",
+        "usedWeekday":[
+            "周二（usedWeekday为null不显示）"
+        ],
+        "usedTime":[
+            "开始时间-结束时间（usedTime为null不显示）"
+        ],
+        "note":"使用规则",
+        "liked":"是否点赞，0：未点赞、1：点赞，未登录用户显示未点赞",
+        "media":[
+            "图文详情链接"
+        ],
+        "rotationChart": [
+        &nbsp;&nbsp;&nbsp;&nbsp;"产品轮播图"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+        "status": "状态：1：未使用、2：已使用、3：已过期、4：已退款",
+        "tradeAmount":"原价或抵用价格",
+        "payAmount":"支付金额",
+        "refundAdvanceHours":"提前 N 小时退款，0：随时退，过期自动退",
+        "refundAmount":"退款金额",
+        "refundRate":"退款比例",
+        "divideAmount":"分佣金额",
+        "divideRate":"分佣比例",
+        "quota":"派发数量",
+        "surplus":"剩余数量",
+        "count":{
+            "read":"浏览数",
+            "like":"点赞数",
+            "share":"分享数"
+        },
+        "location":{
+            "lng":"经度",
+            "lat":"纬度",
+            "distance":"距离（米）"
+        },
+        "shop":{
+            "id":"",
+            "name":"店铺名称",
+            "headImage":"店铺头像",
+            "perCapitaConsumption":"人均消费",
+            "autograph":"门店签名",
+            "address":"详细地址",
+            "telephone":"联系电话",
+            "businessLicense":"营业执照图片",
+        },
+        "user":{
+            "id":"用户ID（数据库）",
+            "uuid":"用户ID",
+            "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+            "mobile":"手机号码",
+            "nickName":"昵称",
+            "headImage":"头像链接"
+        },
+"sku": [
+          {
+            "categoryId": 8,
+            "categoryName": "品质",
+            "attrId": 1,
+            "attrName": "J"
+          },
+          {
+            "categoryId": 9,
+            "categoryName": "重量",
+            "attrId": 3,
+            "attrName": "5KG"
+          }
+        ]
+    }
+}
+</code></pre>
+<h3 id="-33">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>1</td>
+<td>优惠券ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-34">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u4f18u60e0u5238u9000u6b3e0a3ca20id3du4f18u60e0u5238u9000u6b3e3e203ca3e">优惠券退款
+<a id=优惠券退款> </a></h2>
+<p></p>
+<h3 id="-35">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/refund</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p>处于有效期内，未使用的优惠券允许退款</p>
+<p><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)">异常返回</span></span></p>
+<ul>
+<li>4700 优惠券未找到</li>
+<li>4711 优惠券已过期</li>
+<li>4712 优惠券已退款</li>
+<li>4713 优惠券已使用</li>
+<li>4790 退款失败</li>
+</ul>
+<p><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)">返回字段描述</span></span></p>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": {
+        "id": 1,
+        "title": "标题",
+        "icon": "图片",
+        "status": "状态：1：未使用、2：已使用、3：已过期、4：已退款",
+        "expireDate": "有效期至",
+        "tradeAmount": "原价或抵用价格",
+        "payAmount": "支付金额",
+        "quota": "派发数量",
+        "surplus": "剩余数量",
+        "count": {
+            "read": "浏览数",
+            "like": "点赞数",
+            "share": "分享数"
+        },
+        "location": {
+            "lng":"经度",
+            "lat":"纬度",
+            "distance":"距离（米）"
+        },
+        "shop": {
+            "id":"",
+            "name":"店铺名称",
+            "headImage":"店铺头像",
+            "perCapitaConsumption":"人均消费",
+            "autograph":"门店签名",
+            "address":"详细地址",
+            "telephone":"联系电话"
+        },
+        "user":{
+            "id":"用户ID（数据库）",
+            "uuid":"用户ID",
+            "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+            "mobile":"手机号码",
+            "nickName":"昵称",
+            "headImage":"头像链接"
+        }
+    }
+}
+</code></pre>
+<h3 id="-36">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-37">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u52380a3ca20id3du5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u52383e203ca3e">商家核销用户的优惠券
+<a id=商家核销用户的优惠券> </a></h2>
+<p></p>
+<h3 id="-38">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/mine/info/{id}/cancellation</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>
+</code></pre>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "id": 348,
+    "title": "牛肉拌粉套餐",
+    "icon": "http://static.caibinshenghuo.com/a87a2974d5fb3430e8eada38bad65ceb.jpg",
+    "status": 1,
+    "expireDate": "有效期至2020-12-27 08:00:00",
+    "tradeAmount": 15,
+    "payAmount": 10,
+    "quota": 50,
+    "surplus": null,
+    "type": 1,
+    "couponId": 28,
+    "user": {
+      "token": null,
+      "loginUserVo": null
+    },
+    "count": {
+      "read": 0,
+      "like": 0,
+      "share": 0
+    },
+    "shop": {
+      "id": 168,
+      "name": "wxy1215肉蟹煲萍乡店",
+      "headImage": "http://static.caibinshenghuo.com/a9160665d1809c86c519c9afdfb1fc14.jpg",
+      "telephone": "13755521215",
+      "perCapitaConsumption": "50",
+      "autograph": "",
+      "address": "江西省萍乡市安源区后埠街街道步行街",
+      "distance": "0m",
+      "businessLicense": null
+    },
+    "location": {
+      "lng": 113.850835,
+      "lat": 27.63228,
+      "distance": "0m"
+    }
+  }
+}
+</code></pre>
+<h3 id="-39">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-40">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u5238u7684u7ed3u679cu67e5u8be20a3ca20id3du5546u5bb6u6838u9500u7528u6237u7684u4f18u60e0u5238u7684u7ed3u679cu67e5u8be23e203ca3e">商家核销用户的优惠券的结果查询
+<a id=商家核销用户的优惠券的结果查询> </a></h2>
+<p></p>
+<h3 id="-41">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/mine/info/{id}/cancellation/query</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p>查询时间最长30s，如果结果显示未核销，则继续查询</p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+    "data": {
+&nbsp;&nbsp;&nbsp; "type":"是否核销成功，0：未核销、1：核销成功"、2：核销失败"
+<p>}<br>
+}<br>
+</code></pre></p>
+<h3 id="-42">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-43">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u6211u7684u4f18u60e0u52380a3ca20id3du6211u7684u4f18u60e0u52383e203ca3e">我的优惠券
+<a id=我的优惠券> </a></h2>
+<p></p>
+<h3 id="-44">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/mine/{status}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>paid 待使用优惠券，未过期且支付成功的优惠券</li>
+<li>used 已使用过的优惠券</li>
+<li>invalid 已失效的优惠券，包含过期优惠券，退款优惠券</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：1：未使用、2：已使用、3：已过期、4：已退款",
+        &nbsp;&nbsp;&nbsp;&nbsp;"expireDate": "有效期至",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"0：抵用券、1：套餐券",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            },
+<p>&quot;sku&quot;: [<br>
+{<br>
+&quot;categoryId&quot;: 8,<br>
+&quot;categoryName&quot;: &quot;品质&quot;,<br>
+&quot;attrId&quot;: 1,<br>
+&quot;attrName&quot;: &quot;J&quot;<br>
+},<br>
+{<br>
+&quot;categoryId&quot;: 9,<br>
+&quot;categoryName&quot;: &quot;重量&quot;,<br>
+&quot;attrId&quot;: 3,<br>
+&quot;attrName&quot;: &quot;5KG&quot;<br>
+}<br>
+]<br>
+        }, {<br>
+            &quot;id&quot;: 1,<br>
+            &quot;title&quot;: &quot;标题&quot;,<br>
+            &quot;icon&quot;: &quot;图片&quot;,<br>
+            &quot;status&quot;: &quot;状态：0：未到上架时间、1：上架、2：下架、3：过期）&quot;,<br>
+            &quot;tradeAmount&quot;: &quot;原价或抵用价格&quot;,<br>
+            &quot;payAmount&quot;: &quot;支付金额&quot;,<br>
+            &quot;quota&quot;: &quot;派发数量&quot;,<br>
+            &quot;surplus&quot;: &quot;剩余数量&quot;,<br>
+            &quot;count&quot;: {<br>
+                &quot;read&quot;: &quot;浏览数&quot;,<br>
+                &quot;like&quot;: &quot;点赞数&quot;,<br>
+                &quot;share&quot;: &quot;分享数&quot;<br>
+            },<br>
+            &quot;location&quot;: {<br>
+                &quot;lng&quot;:&quot;经度&quot;,<br>
+                &quot;lat&quot;:&quot;纬度&quot;,<br>
+                &quot;distance&quot;:&quot;距离（米）&quot;<br>
+            },<br>
+            &quot;shop&quot;: {<br>
+                &quot;id&quot;:&quot;&quot;,<br>
+                &quot;name&quot;:&quot;店铺名称&quot;,<br>
+                &quot;headImage&quot;:&quot;店铺头像&quot;,<br>
+                &quot;perCapitaConsumption&quot;:&quot;人均消费&quot;,<br>
+                &quot;autograph&quot;:&quot;门店签名&quot;,<br>
+                &quot;address&quot;:&quot;详细地址&quot;,<br>
+                &quot;telephone&quot;:&quot;联系电话&quot;<br>
+            },<br>
+&quot;user&quot;:{<br>
+&quot;id&quot;:&quot;用户ID（数据库）&quot;,<br>
+&quot;uuid&quot;:&quot;用户ID&quot;,<br>
+&quot;userType&quot;:&quot;用户分类，1：城市合伙人、2：圈主、3：用户&quot;,<br>
+&quot;mobile&quot;:&quot;手机号码&quot;,<br>
+&quot;nickName&quot;:&quot;昵称&quot;,<br>
+&quot;headImage&quot;:&quot;头像链接&quot;<br>
+},<br>
+&quot;sku&quot;: null<br>
+        } <br>
+    ]<br>
+}<br>
+</code></pre></p>
+<h3 id="-45">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>paid</td>
+<td>paid：已支付、used：已使用、refunded：已退款</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopId</td>
+<td>否</td>
+<td></td>
+<td>门店ID，参数存在时，仅显示此门店的优惠券</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-46">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6211u7684u6709u6548u4f18u60e0u52380a3ca20id3du6211u7684u6709u6548u4f18u60e0u52383e203ca3e">我的有效优惠券
+<a id=我的有效优惠券> </a></h2>
+<p></p>
+<h3 id="-47">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/valid</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>valid 可使用的优惠券，处于有效期内且支付成功的优惠券，此分类用于门店支付时的优惠券选择</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "voucher":[{ //抵用券
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：",
+        &nbsp;&nbsp;&nbsp;&nbsp;"expireDate": "有效期至",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "type":"0：抵用券、1：套餐券",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }],
+"setMeal":[ {//套餐券
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;] 
+&nbsp;&nbsp;&nbsp; }
+}
+</code></pre>
+<h3 id="-48">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopId</td>
+<td>否</td>
+<td></td>
+<td>门店ID，参数存在时，仅显示此门店的优惠券</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-49">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6838u9500u4f18u60e0u52380a3ca20id3du6838u9500u4f18u60e0u52383e203ca3e">核销优惠券
+<a id=核销优惠券> </a></h2>
+<p></p>
+<h3 id="-50">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/receive/used</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+    "code": 0,
+    "msg": "OK",
+    "data":"成功"
+    }
+</code></pre>
+<h3 id="-51">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>couponReceiveId</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>我领取的优惠券id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-52">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u7528u6237u5361u5238u4e8cu7ef4u78010a3ca20id3du7528u6237u5361u5238u4e8cu7ef4u78013e203ca3e">用户卡券二维码
+<a id=用户卡券二维码> </a></h2>
+<p></p>
+<h3 id="-53">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/mine/info/{id}/qrcode</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>卡券二维码内容</p>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "content": "http://m.caibinshenghuo.com/qrcode/coupon.html?content=Rcbda03qcJZ7iJ1KEjQBfw=="
+  }
+}
+</code></pre>
+<h3 id="-54">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-55">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td><td key=1><span>number</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> msg</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>object</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> content</span></td><td key=1><span>string</span></td><td key=2>必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u8ba2u5355u4e2du5fc3u6211u7684u4f18u60e0u52380a3ca20id3du8ba2u5355u4e2du5fc3u6211u7684u4f18u60e0u52383e203ca3e">订单中心我的优惠券
+<a id=订单中心我的优惠券> </a></h2>
+<p></p>
+<h3 id="-56">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/order-center/{status}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>paid 待使用优惠券，未过期且支付成功的优惠券</li>
+<li>used 已使用过的优惠券</li>
+<li>invalid 已失效的优惠券，包含过期优惠券，退款优惠券</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：1：未使用、2：已使用、3：已过期、4：已退款",
+        &nbsp;&nbsp;&nbsp;&nbsp;"expireDate": "有效期至",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"0：抵用券、1：套餐券",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            },
+"orderType": "订单类型，0：自己购买、1：邀请、2：分享",
+"orderDivideAmount": "佣金金额，邀请用户或分享购买时的圈主佣金",
+"orderDescription": "邀请用户或分享购买的描述，例：你邀请的用户【xxx】购买了【xx商品】，获得xx佣金",
+"sku": [
+          {
+            "categoryId": 8,
+            "categoryName": "品质",
+            "attrId": 1,
+            "attrName": "J"
+          },
+          {
+            "categoryId": 9,
+            "categoryName": "重量",
+            "attrId": 3,
+            "attrName": "5KG"
+          }
+        ]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            },
+"sku": null
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;
+&nbsp;&nbsp;&nbsp; ]
+}
+</code></pre>
+<h3 id="-57">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td>经度</td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td>纬度</td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>paid</td>
+<td>paid：已支付、used：已使用、refunded：已退款</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-58">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u95e8u5e97u652fu4ed80a3ca20id3du95e8u5e97u652fu4ed83e203ca3e">门店支付
+<a id=门店支付> </a></h2>
+<p></p>
+<h3 id="-59">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/pay</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)">异常返回</span></span></p>
+<ul>
+<li>4830 门店未找到</li>
+<li>4700 优惠券未找到</li>
+<li>4711 优惠券已过期</li>
+<li>4712 优惠券已退款</li>
+</ul>
+<p><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)">返回字段描述</span></span></p>
+<pre><code>
+{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "500"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "100",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "body": "门店支付",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "extendParams": "{\"shopId\":1,\"couponReceiveId\":"1,2,3"}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "balance": "100",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payment": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "alipay": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "weixin": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "balance": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "enable": true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+}
+</code></pre>
+<h3 id="-60">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h1 id="u4f18u60e0u5238u5546u5bb6u540eu53f0">优惠券商家后台</h1>
+<p></p>
+<h2 id="u4f18u60e0u5238u4e0au67b6u6216u4e0bu67b60a3ca20id3du4f18u60e0u5238u4e0au67b6u6216u4e0bu67b63e203ca3e">优惠券上架或下架
+<a id=优惠券上架或下架> </a></h2>
+<p></p>
+<h3 id="-61">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/edit/{operate}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)"><span class="colour" style="color:rgb(85, 85, 85)">异常返回</span></span></span></p>
+<ul>
+<li>4830 门店未找到</li>
+<li>4700 优惠券未找到</li>
+</ul>
+<pre><code>
+{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": null
+}
+</code></pre>
+<h3 id="-62">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>operate</td>
+<td>on</td>
+<td>on：上架、off：下架</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>是</td>
+<td></td>
+<td>优惠券id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u4f18u60e0u5238u7f16u8f910a3ca20id3du4f18u60e0u5238u7f16u8f913e203ca3e">优惠券编辑
+<a id=优惠券编辑> </a></h2>
+<p></p>
+<h3 id="-63">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/edit</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+  "category": "fine_food",//fine_food：美食、amusement：休闲娱乐、2 cosmetology：美容/美发
+  "detail": "详细描述",
+  "divideAmount": 分佣金额,
+  "endTime": "2019-12-24T07:30:55.474Z", //结束时间
+  "icon": "图片",
+  "id": 0,//编辑时 需要传优惠券id,新增时null
+  "limited": 限购数量，0或null：无限制,
+  "media": [
+    "优惠券详细图片"
+  ],
+&nbsp;&nbsp;"rotationChart": [
+    "产品轮播图"
+  ],
+  "note": "注意事项",
+  "payAmount": 支付钱数,
+  "quota": 派发数量，0或null：无限制,
+  "refundAdvanceHours": 提前 N 小时退款，0：随时退,
+  "shopId":店铺id,
+  "startTime": "2019-12-24T07:30:55.474Z",
+  "title": "标题",
+  "tradeAmount": 原价,
+  "type": "voucher 抵用券 set_meal 套餐券",
+  "usedTime": [
+    "12:30-14.32"
+  ],
+  "copywriting":"",
+</code></pre>
+<pre><code data-language="json" class="lang-json">"isSpecs":"是否支持多规格，0：否、1：是",
+"skuInfo":{
+    "sku": [{
+        "attr": [{
+                "id": 1,
+                "name": "J"
+            },
+            {
+                "id": 6,
+                "name": "JJ"
+            }
+        ],
+        "id": 8,
+        "name": "品质"
+    }, {
+        "attr": [{
+            "id": 28,
+            "name": "2斤"
+        }, {
+            "id": 29,
+            "name": "5斤"
+        }],
+        "id": 9,
+        "name": "重量"
+    }],
+    "data":[{
+        "attr": [{
+            "attrId": 1,
+            "attrName": "J",
+            "categoryId": 8,
+            "categoryName": "品质"
+        }, {
+            "attrId": 28,
+            "attrName": "2斤",
+            "categoryId": 9,
+            "categoryName": "重量"
+        }],
+        "divideAmount": 20,
+        "id": 14,
+        "payAmount": 50,
+        "quota": 120,
+        "tradeAmount": 100
+    }, {
+        "attr": [{
+            "attrId": 1,
+            "attrName": "J",
+            "categoryId": 8,
+            "categoryName": "品质"
+        }, {
+            "attrId": 29,
+            "attrName": "5斤",
+            "categoryId": 9,
+            "categoryName": "重量"
+        }],
+        "divideAmount": 50,
+        "id": 0,
+        "payAmount": 125,
+        "quota": 120,
+        "tradeAmount": 250
+    },
+    {
+        "attr": [{
+            "attrId": 6,
+            "attrName": "JJ",
+            "categoryId": 8,
+            "categoryName": "品质"
+        }, {
+            "attrId": 28,
+            "attrName": "2斤",
+            "categoryId": 9,
+            "categoryName": "重量"
+        }],
+        "divideAmount": 50,
+        "id": 15,
+        "payAmount": 100,
+        "quota": 100,
+        "tradeAmount": 200
+    },
+    {
+        "attr": [{
+            "attrId": 6,
+            "attrName": "JJ",
+            "categoryId": 8,
+            "categoryName": "品质"
+        }, {
+            "attrId": 29,
+            "attrName": "5斤",
+            "categoryId": 9,
+            "categoryName": "重量"
+        }],
+        "divideAmount": 125,
+        "id": 0,
+        "payAmount": 250,
+        "quota": 100,
+        "tradeAmount": 500
+    }
+]
+}
+</code></pre>
+<pre><code>
+}
+</code></pre>
+<h3 id="-64">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-65">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5546u5bb6u540eu53f0u7edfu8ba10a3ca20id3du5546u5bb6u540eu53f0u7edfu8ba13e203ca3e">商家后台统计
+<a id=商家后台统计> </a></h2>
+<p></p>
+<h3 id="-66">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/caibin/shop/coupon/statistics</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "shop": {
+      "id": 91,//店铺id
+      "name": "wxyya的小店嘻嘻嘻",
+      "headImage": "http://static.caibinshenghuo.com/8e9327d270deb656c83d3dc2c499f159.jpg",
+      "telephone": "13755525459",
+      "perCapitaConsumption": "10000",
+      "autograph": "00000000000略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略",
+      "address": "江西省南昌市东湖区沙井街道前湖大道慧谷创意产业园"
+    },
+    "statics": {
+      "statusStr": "正常",
+      "status": 0,//0 正常  1 过期
+      "todayOrderNum": 0, //今日订单数
+      "todayPayMoney": 0,//今日交易总额
+      "todayIncomeNum": 0,//今日核销数
+      "todayIncomeMoney": 0 //今日核销总额
+    }
+  }
+}
+</code></pre>
+<p><br data-tomark-pass=""><br>
+<br data-tomark-pass=""></p>
+<h3 id="-67">请求参数</h3>
+<h2 id="u8ba2u5355u4e2du5fc30a3ca20id3du8ba2u5355u4e2du5fc33e203ca3e">订单中心
+<a id=订单中心> </a></h2>
+<p></p>
+<h3 id="-68">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/order/{status}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>//paid 待使用优惠券，未过期且支付成功的优惠券</li>
+<li>//used 已使用过的优惠券</li>
+<li>//invalid 已失效的优惠券，包含过期优惠券，退款优惠券</li>
+<li>onsale 在售 可以出售（）</li>
+<li>soldout&nbsp; 下架</li>
+<li>传递分页数据</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0 未到上架时间 1：上架 、2：下架、3：过期、4：审核中 5 驳回",
+            "expireDate": "有效期至",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+            "user":{
+                "id":"用户ID（数据库）",
+                "uuid":"用户ID",
+                "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                "mobile":"手机号码",
+                "nickName":"昵称",
+                "headImage":"头像链接"
+            }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;
+&nbsp;&nbsp;&nbsp; ]
+}
+</code></pre>
+<h3 id="-69">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>paid</td>
+<td>onsale 在售,soldout  下架</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopId</td>
+<td>是</td>
+<td></td>
+<td>门店ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-70">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u8ba2u5355u7ba1u74060a3ca20id3du8ba2u5355u7ba1u74063e203ca3e">订单管理
+<a id=订单管理> </a></h2>
+<p></p>
+<h3 id="-71">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/manger/{status}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "pageSize": 20,
+    "totalPage": 1,
+    "totalResult": 4,
+    "currentPage": 1,
+    "currentResult": 0,
+    "list": [
+
+    {
+        "preTitle": "【套餐券】",
+        "title": "佐敦茶餐厅", 
+        "payTime": "2019-12-16 15:31:04",//付款时间
+        "tradeNo": "20191216153103813797", //订单号
+&nbsp;&nbsp;&nbsp;&nbsp;     "usedTime":""//使用时间
+        "user": {
+          "id": 911,
+          "uuid": "wuxinyu",
+          "userType": 2,
+          "mobile": "13755525459",
+          "nickName": "wxytest",
+          "headImage": "http://static.caibinshenghuo.com/0405257d159c3c1af7a114668e581f63.png"
+        },
+        "payAmount": 50, //付款钱数
+        "tradeAmount": 100, //抵扣钱数
+        "refundAmount": 50, //退款钱数
+        "type": "set_meal",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":"0,未支付、1：支付成功未使用、2：已使用、3：已过期（expireDate &gt; now()也设置为过期状态）、4：已退款",
+      },
+
+    ]
+  }
+}
+</code></pre>
+<h3 id="-72">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>pay,used,refuned</td>
+<td>已支付,已核销,退款/售后</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shopId</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-73">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u9000u6b3eu8be6u60c50a3ca20id3du9000u6b3eu8be6u60c53e203ca3e">退款详情
+<a id=退款详情> </a></h2>
+<p></p>
+<h3 id="-74">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/refuned/details</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>
+</code></pre>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "id": 150,
+    "userId": 744,
+    "orderPayId": 2190,
+    "tradeNo": "a5a8ef15d4604c54a3c9d429de75d51c",//订单号
+    "payWay": "balance",weixin, alipay, balance
+    "payAmount": 60, //支付钱数
+    "refundStatus": 1,//成功，没有失败的
+    "refundAmount": 60, //退款钱数
+    "payTime": null,
+    "refuned": [
+      {
+        "title": "退款申请提交",
+        "time": "2019-12-27 15:53:02"
+      },
+      {
+        "title": "彩缤生活处理完成",
+        "time": "2019-12-27 15:54:02"
+      },
+      {
+        "title": "退款成功",
+        "time": "2019-12-27 15:54:02"
+      }
+    ],
+    "refunedTime": "2019-12-27 15:54:02" //退款时间
+  }
+}
+</code></pre>
+<h3 id="-75">请求参数</h3>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>couponReceiveId</td>
+<td>是</td>
+<td></td>
+<td>用户领取优惠券id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u7cbeu9009u4f18u60e0u5238uff08u5403u8d27u5723u5730u53d8u7f8eu57fau5730u73a9u55e8u4e00u4e0buff090a3ca20id3du7cbeu9009u4f18u60e0u5238uff08u5403u8d27u5723u5730u53d8u7f8eu57fau5730u73a9u55e8u4e00u4e0buff093e203ca3e">精选优惠券（吃货圣地/变美基地/玩嗨一下）
+<a id=精选优惠券（吃货圣地/变美基地/玩嗨一下）> </a></h2>
+<p></p>
+<h3 id="-76">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/coupon/selected/{category}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "OK",
+&nbsp;&nbsp;&nbsp; "data": [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期 4 待审核 5 驳回）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "title": "标题",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "icon": "图片",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": "状态：0：未到上架时间、1：上架、2：下架、3：过期）",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": "原价或抵用价格",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": "支付金额",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "quota": "派发数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "surplus": "剩余数量",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "read": "浏览数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "like": "点赞数",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "share": "分享数"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"location": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lng":"经度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lat":"纬度",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"distance":"距离（米）"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shop": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "name":"店铺名称",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage":"店铺头像",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "perCapitaConsumption":"人均消费",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "autograph":"门店签名",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "address":"详细地址",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "telephone":"联系电话"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;
+&nbsp;&nbsp;&nbsp; ]
+}
+</code></pre>
+<h3 id="-77">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category</td>
+<td>fine_food</td>
+<td>fine_food：美食、amusement：娱乐、cosmetology：美发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>否</td>
+<td></td>
+<td>latest,nearBy //最新,最近</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-78">返回数据</h3>
+<pre><code class="language-javascript">{&quot;type&quot;:&quot;object&quot;,&quot;title&quot;:&quot;empty object&quot;,&quot;properties&quot;:{}}
+</code></pre>
+<h1 id="u9996u9875">首页</h1>
+<p></p>
+<h2 id="u9644u8fd1u7684u95e8u5e97uff08u5730u56feuff090a3ca20id3du9644u8fd1u7684u95e8u5e97uff08u5730u56feuff093e203ca3e">附近的门店（地图）
+<a id=附近的门店（地图）> </a></h2>
+<p></p>
+<h3 id="-79">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/near/map</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>按照实际位置进行标注在地图中，根据距离由近到远显示附近5公里的门店</p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"ok",
+    "data":[
+        {
+            "user":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"用户ID（数据库）",
+            &nbsp;&nbsp;&nbsp;&nbsp;"uuid":"用户ID",
+            &nbsp;&nbsp;&nbsp;&nbsp;"userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+            &nbsp;&nbsp;&nbsp;&nbsp;"mobile":"手机号码",
+            &nbsp;&nbsp;&nbsp;&nbsp;"nickName":"昵称",
+            &nbsp;&nbsp;&nbsp;&nbsp;"headImage":"头像链接"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+            "location":{
+                "lng":"经度",
+                "lat":"纬度",
+                "distance":"距离（米）"
+            },
+            "shop":{
+                "id":"",
+                "name":"店铺名称",
+                "headImage":"店铺头像",
+                "perCapitaConsumption":"人均消费",
+                "autograph":"门店签名",
+                "address":"详细地址",
+                "telephone":"联系电话",
+                "activity":{
+                    "description":"活动描述",
+                    "beginTime":"活动开始时间",
+                    "endTime":"活动结束时间"
+                },
+                "business":{
+                    "isOpen":"是否营业中，true|false",
+                    "time":[
+                        {
+                            "begin":"开始时间（13位时间戳）",
+                            "end":"结束时间（13位时间戳）"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+<h3 id="-80">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td>地区代码</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-81">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u9644u8fd1u7684u95e8u5e97uff08u5217u8868uff090a3ca20id3du9644u8fd1u7684u95e8u5e97uff08u5217u8868uff093e203ca3e">附近的门店（列表）
+<a id=附近的门店（列表）> </a></h2>
+<p></p>
+<h3 id="-82">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/near/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<p>根据距离由近到远排序</p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"OK",
+    "data":{
+        "pageSize":5,
+        "totalPage":1,
+        "totalResult":3,
+        "currentPage":1,
+        "currentResult":0,
+        "list":[
+            {
+                "user":{
+                    "id":"用户ID（数据库）",
+                    "uuid":"用户ID",
+                    "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+                    "mobile":"手机号码",
+                    "nickName":"昵称",
+                    "headImage":"头像链接"
+                },
+                "location":{
+                    "lng":"经度",
+                    "lat":"纬度",
+                    "distance":"距离（米）"
+                },
+                "shop":{
+                    "id":"",
+                    "name":"店铺名称",
+                    "headImage":"店铺头像",
+                    "perCapitaConsumption":"人均消费",
+                    "autograph":"门店签名",
+                    "address":"详细地址",
+                    "telephone":"联系电话",
+                    "activity":{
+                        "description":"活动描述",
+                        "beginTime":"活动开始时间",
+                        "endTime":"活动结束时间"
+                    }
+                }
+            }
+        ]
+    }
+}
+</code></pre>
+<h3 id="-83">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regionCode</td>
+<td>是</td>
+<td>地区代码</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-84">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u95e8u5e97u4e3bu98750a3ca20id3du95e8u5e97u4e3bu98753e203ca3e">门店主页
+<a id=门店主页> </a></h2>
+<p></p>
+<h3 id="-85">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/home/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"ok",
+    "data":{
+        "id":"",
+        "name":"店铺名称",
+        "headImage":"店铺头像",
+        "perCapitaConsumption":"人均消费",
+        "autograph":"门店签名",
+        "address":"详细地址",
+        "telephone":"联系电话",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"用户ID（数据库）",
+            "uuid":"用户ID",
+            "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+            "mobile":"手机号码",
+        &nbsp;&nbsp;&nbsp;&nbsp;"nickName":"昵称",
+        &nbsp;&nbsp;&nbsp;&nbsp;"headImage":"头像链接"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+        "business":{
+            "openFlag":"是否营业中，true|false",
+            "time":"全天、17:00~次日3:00"
+        },
+        "photos":[
+            "门店照片"
+        ],
+        "activity":{
+            "description":"活动描述",
+            "beginTime":"活动开始时间（13位时间戳）",
+            "endTime":"活动结束时间（13位时间戳）"
+        },
+        "location":{
+            "lng":"经度",
+            "lat":"纬度",
+            "distance":"距离（米）"
+        },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"region":{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"regionCode":"地区编号",
+            "regionName":"地区名称"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"share": { // 微信分享用户时，小程序启用，优先使用小程序分享
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 1, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wechatApplet": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 0, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"path": "小程序路径"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wechatH5": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 1, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "谭小姐麻辣香锅", // 名称
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link": "[http://static.caibinshenghuo.com/0405257d159c3c1af7a114668e581f63.png](http://static.caibinshenghuo.com/0405257d159c3c1af7a114668e581f63.png)", // 首图
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"summary": "谭小姐请饶大师做的麻辣香锅，敢说不好吃，腿打折！！！", // 摘要
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"path": "[http://m.caibinshenghuo.com/shop/2](http://m.caibinshenghuo.com/shop/2)" // 分享路径
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+    }
+}
+</code></pre>
+<h3 id="-86">请求参数</h3>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td>门店编号</td>
+</tr>
+</tbody>
+</table>
+<h1 id="u7533u8bf7">申请</h1>
+<p></p>
+<h2 id="u9009u62e9u95e8u5e97u7c7bu578b0a3ca20id3du9009u62e9u95e8u5e97u7c7bu578b3e203ca3e">选择门店类型
+<a id=选择门店类型> </a></h2>
+<p></p>
+<h3 id="-87">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/apply/select/{type}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-88">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>personal</td>
+<td>门店类型，个人门店personal、商家门店business</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-89">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u95e8u5e97u7533u8bf7u8ba4u8bc10a3ca20id3du95e8u5e97u7533u8bf7u8ba4u8bc13e203ca3e">门店申请认证
+<a id=门店申请认证> </a></h2>
+<p></p>
+<h3 id="-90">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/apply</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>status = 0 第一次认证，支付成功后跳转证件提交页面</li>
+<li>status = 1&nbsp;已支付，直接跳转证件提交页面</li>
+<li>status = 2 续费，支付成功后不跳转</li>
+<li>第一次认证有首月特惠</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+&nbsp;&nbsp;&nbsp; "msg": "ok",
+&nbsp;&nbsp;&nbsp; "data": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"shopApply":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":0, // 店铺认证状态，0：第一次认证，支付成功后跳转证件提交页面、1：已支付，直接跳转证件提交页面、2：续费，支付成功后不跳转
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isExpired":0, // 状态status=2时有效，是否过期，0：未过期、1：已过期
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"expireDate":"2019-11-01" // 状态status=2时有效，过期时间
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "user": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "id": 1,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "uuid": "abcdefg",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "userType": 3,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "mobile": "13688888888",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "nickName": "彩缤生活",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "headImage": "http://static.caibinshenghuo.com/9446f5d06a65d7ccf9ed062854c0f741.png"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "price": [{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 50,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 9.9,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"extendParams": "{\"days\":30}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "desc": "首页特惠",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"recentBuy":"是否最近已订购，0：未订购、1：已订购"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 150,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 120,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"extendParams": "{\"days\":90}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "desc": "3个月",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"recentBuy":"是否最近已订购，0：未订购、1：已订购"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 300,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 210,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"extendParams": "{\"days\":180}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "desc": "6个月",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"recentBuy":"是否最近已订购，0：未订购、1：已订购"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "tradeAmount": 600,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "payAmount": 360,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"extendParams": "{\"days\":360}",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "desc": "12个月",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"recentBuy":"是否最近已订购，0：未订购、1：已订购"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }]
+&nbsp;&nbsp;&nbsp; }
+}
+</code></pre>
+<p><br data-tomark-pass=""><br>
+<br data-tomark-pass=""></p>
+<h3 id="-91">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-92">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u95e8u5e97u8ba4u8bc1u652fu4ed80a3ca20id3du95e8u5e97u8ba4u8bc1u652fu4ed83e203ca3e">门店认证支付
+<a id=门店认证支付> </a></h2>
+<p></p>
+<h3 id="-93">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/apply/pay</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p><br data-tomark-pass=""><br>
+<br data-tomark-pass=""></p>
+<h3 id="-94">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h3 id="-95">返回数据</h3>
+<pre><code class="language-javascript">{
+    &quot;tradeAmount&quot;: &quot;50&quot;
+    &quot;payAmount&quot;: &quot;9.9&quot;,
+    &quot;body&quot;: &quot;充值&quot;,
+    &quot;extendParams&quot;: &quot;{\&quot;days\&quot;:30}&quot;,
+    &quot;balance&quot;: &quot;100&quot;,
+    &quot;payment&quot;: {
+        &quot;alipay&quot;: {
+            &quot;enable&quot;: true
+        },
+        &quot;weixin&quot;: {
+            &quot;enable&quot;: true
+        },
+        &quot;balance&quot;: {
+            &quot;enable&quot;: true
+        },
+    }
+}
+</code></pre>
+<h2 id="u95e8u5e97u7167u7247u63d0u4ea4u5ba1u68380a3ca20id3du95e8u5e97u7167u7247u63d0u4ea4u5ba1u68383e203ca3e">门店照片提交审核
+<a id=门店照片提交审核> </a></h2>
+<p></p>
+<h3 id="-96">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/apply/photo</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+&nbsp;&nbsp;&nbsp; "shopFacade":"店面照片",
+&nbsp;&nbsp;&nbsp; "shopInside":"店内照片",
+&nbsp;&nbsp;&nbsp; "businessLicense":"营业执照",
+&nbsp;&nbsp;&nbsp; "idCardFront":"身份证正面照片",
+&nbsp;&nbsp;&nbsp; "idCardBack":"身份证背面照片",
+    "shopType":"店铺类型 0 个人 1 商家"
+}
+</code></pre>
+<h3 id="-97">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h2 id="u95e8u5e97u7167u7247u5ba1u68380a3ca20id3du95e8u5e97u7167u7247u5ba1u68383e203ca3e">门店照片审核
+<a id=门店照片审核> </a></h2>
+<p></p>
+<h3 id="-98">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/apply/photo/audit</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>status = 0，未递交审核，time为支付时间</li>
+<li>status = 1，审核中，time为提交时间</li>
+<li>status = 2，驳回，time为审核时间</li>
+<li>status = 3，审核通过，time为审核时间</li>
+</ul>
+<pre><code data-language="json" class="lang-json">{
+&nbsp;&nbsp;&nbsp; "code": 0,
+    "msg": "ok",
+    "data": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":"审核状态",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"time":"时间，13位时间戳，审核状态为0时忽略",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"remark":"审核备注",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "shopType":"店铺类型 0 个人 1 商家(new)",
+    	"shopFacade":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":"照片链接",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"result":"审核结果，-1 审核中,1通过，0驳回",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":"驳回原因"
+        },
+&nbsp;&nbsp;&nbsp; 	"shopInside":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":"照片链接",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"result":"审核结果，-1 审核中,1通过，0驳回",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":"驳回原因"
+        },
+&nbsp;&nbsp;&nbsp; 	"businessLicense":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":"照片链接",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"result":"审核结果，-1 审核中,1通过，0驳回",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":"驳回原因"
+        },
+&nbsp;&nbsp;&nbsp; 	"idCardFront":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":"照片链接",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"result":"审核结果，-1 审核中,1通过，0驳回",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":"驳回原因"
+        },
+&nbsp;&nbsp;&nbsp; 	"idCardBack":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link":"照片链接",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"result":"审核结果，-1 审核中,1通过，0驳回",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":"驳回原因"
+        }
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</code></pre>
+<h3 id="-99">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-100">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h1 id="u641cu7d22">搜索</h1>
+<p></p>
+<h2 id="u5730u533au70edu95e8u95e8u5e970a3ca20id3du5730u533au70edu95e8u95e8u5e973e203ca3e">地区热门门店
+<a id=地区热门门店> </a></h2>
+<p></p>
+<h3 id="-101">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/hot</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"ok",
+    "data":[
+    	{
+            "id":"",
+            "name":"店铺名称",
+            "headImage":"店铺头像",
+            "perCapitaConsumption":"人均消费",
+            "autograph":"门店签名",
+            "address":"详细地址",
+            "telephone":"联系电话"
+    	}
+    ]
+}
+</code></pre>
+<h3 id="-102">请求参数</h3>
+<h2 id="u95e8u5e97u641cu7d220a3ca20id3du95e8u5e97u641cu7d223e203ca3e">门店搜索
+<a id=门店搜索> </a></h2>
+<p></p>
+<h3 id="-103">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/search</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"ok",
+    "data":{
+    &nbsp;&nbsp;&nbsp;&nbsp;"pageSize":5,
+        "totalPage":1,
+        "totalResult":3,
+        "currentPage":1,
+        "currentResult":0,
+    	"list":[
+            {
+                "id":"",
+                "name":"店铺名称",
+                "headImage":"店铺头像",
+                "perCapitaConsumption":"人均消费",
+                "autograph":"门店签名",
+                "address":"详细地址",
+                "telephone":"联系电话",
+                "location":{
+                    "regionCode":"地区编号",
+                    "regionName":"地区名称",
+                    "lng":"经度",
+                    "lat":"纬度",
+                    "distance":"距离（米）"
+                }
+            }
+        ]
+    }
+}
+</code></pre>
+<h3 id="-104">请求参数</h3>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+<h1 id="u6211u7684u95e8u5e97">我的门店</h1>
+<p></p>
+<h2 id="u6211u7684u95e8u5e97u4e0au7ebf0a3ca20id3du6211u7684u95e8u5e97u4e0au7ebf3e203ca3e">我的门店上线
+<a id=我的门店上线> </a></h2>
+<p></p>
+<h3 id="-105">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/mine/online</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-106">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-107">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6211u7684u95e8u5e97u4e0bu7ebf0a3ca20id3du6211u7684u95e8u5e97u4e0bu7ebf3e203ca3e">我的门店下线
+<a id=我的门店下线> </a></h2>
+<p></p>
+<h3 id="-108">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/mine/offline</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-109">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-110">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6211u7684u95e8u5e970a3ca20id3du6211u7684u95e8u5e973e203ca3e">我的门店
+<a id=我的门店> </a></h2>
+<p></p>
+<h3 id="-111">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/mine</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<ol>
+<li>线上门店，不进行地图选点，不设置人均消费</li>
+<li>状态为锁定中的门店，不允许任何操作，提示与已下线类似，解除锁定时的状态为门店下线</li>
+</ol>
+<pre><code data-language="json" class="lang-json">{
+    "code":0,
+    "msg":"ok",
+    "data":{
+        "id":"",
+        "name":"店铺名称",
+        "headImage":"店铺头像",
+        "perCapitaConsumption":"人均消费",
+        "autograph":"门店签名",
+        "address":"详细地址",
+        "telephone":"联系电话",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"店铺类型，0：线下门店、1：线上门店",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":"门店状态，0：未开始营业、1：营业中、3：锁定中、4：门店下线",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"用户ID（数据库）",
+            "uuid":"用户ID",
+            "userType":"用户分类，1：城市合伙人、2：圈主、3：用户",
+            "mobile":"手机号码",
+        &nbsp;&nbsp;&nbsp;&nbsp;"nickName":"昵称",
+        &nbsp;&nbsp;&nbsp;&nbsp;"headImage":"头像链接"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+        "business":{
+            "openFlag":"是否营业中，true|false",
+            "time":"全天、17:00~次日3:00"
+        },
+        "photos":[
+            "门店照片"
+        ],
+        "activity":{
+            "description":"活动描述",
+            "beginTime":"活动开始时间（13位时间戳）",
+            "endTime":"活动结束时间（13位时间戳）"
+        },
+        "location":{
+            "lng":"经度",
+            "lat":"纬度",
+            "distance":"距离（米）"
+        },
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"region":{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"regionCode":"地区编号",
+            "regionName":"地区名称"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"share": { // 微信分享用户时，小程序启用，优先使用小程序分享
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 1, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wechatApplet": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 0, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"path": "小程序路径"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wechatH5": {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enable": 1, // 是否启用分享，1：启用、2禁用
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "谭小姐麻辣香锅", // 名称
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"link": "http://static.caibinshenghuo.com/0405257d159c3c1af7a114668e581f63.png", // 首图
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"summary": "谭小姐请饶大师做的麻辣香锅，敢说不好吃，腿打折！！！", // 摘要
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"path": "http://m.caibinshenghuo.com/shop/2" // 分享路径
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+    }
+}
+</code></pre>
+<h3 id="-112">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-113">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6211u7684u95e8u5e97u7f16u8f910a3ca20id3du6211u7684u95e8u5e97u7f16u8f913e203ca3e">我的门店编辑
+<a id=我的门店编辑> </a></h2>
+<p></p>
+<h3 id="-114">基本信息</h3>
+<p><strong>Path：</strong> /caibin/shop/mine/edit</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<ul>
+<li>name、regionCode、location 不允许空</li>
+<li>business 允许空（全天营业），begin、end允许空</li>
+<li>activity 允许空（不设置活动或活动下架），beginTime、endTime允许空</li>
+<li>photos 至少上传一张图片</li>
+<li>name 县级区域内不允许重复</li>
+</ul>
+<p><br data-tomark-pass=""><br>
+<br data-tomark-pass=""></p>
+<h3 id="-115">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lng</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lat</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+
+            <footer class="m-footer">
+              <p>Build by <a href="https://ymfe.org/">YMFE</a>.</p>
+            </footer>
+          </div>
+        </div>
+      </body>
+      </html>
+      

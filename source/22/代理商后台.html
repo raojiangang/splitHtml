@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+      <html>
+      <head>
+      <title>代理商后台</title>
+      <meta charset="utf-8" />
+      <style>@charset "UTF-8";
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 外层轨道 */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset006pxrgba(255, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  color: #393838;
+  position: relative;
+}
+
+table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 3px 10px;
+}
+
+th {
+  padding: 5px 10px;
+}
+
+a, a:link, a:visited {
+  color: #34495e;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #59d69d;
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+p {
+  padding-left: 10px;
+  margin-bottom: 9px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #404040;
+  line-height: 36px;
+}
+
+h1 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  clear: both;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid #59d69d;
+  padding-left: 8px;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 13px;
+}
+
+hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+blockquote {
+  padding: 13px 13px 21px 15px;
+  margin-bottom: 18px;
+  font-family: georgia, serif;
+  font-style: italic;
+}
+
+blockquote:before {
+  font-size: 40px;
+  margin-left: -10px;
+  font-family: georgia, serif;
+  color: #eee;
+}
+
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+code,
+pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+
+code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+pre {
+  display: block;
+  padding: 14px;
+  margin: 0 0 18px;
+  line-height: 16px;
+  font-size: 11px;
+  border: 1px solid #d9d9d9;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f6f6f6;
+}
+
+pre code {
+  background-color: #f6f6f6;
+  color: #737373;
+  font-size: 11px;
+  padding: 0;
+}
+
+sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+}
+
+@media print {
+  body,
+  code,
+  pre code,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+.table-of-contents {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 260px;
+}
+
+.table-of-contents > ul > li > a {
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.table-of-contents ul {
+  overflow: auto;
+  margin: 0px;
+  height: 100%;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.table-of-contents ul li {
+  padding-left: 20px;
+}
+
+.table-of-contents a {
+  padding: 2px 0px;
+  display: block;
+  text-decoration: none;
+}
+
+.content-right {
+  max-width: 700px;
+  margin-left: 290px;
+  padding-left: 70px;
+  flex-grow: 1;
+}
+.content-right h2:target {
+  padding-top: 80px;
+}
+
+body > p {
+  margin-left: 30px;
+}
+
+body > table {
+  margin-left: 30px;
+}
+
+body > pre {
+  margin-left: 30px;
+}
+
+.curProject {
+  position: fixed;
+  top: 20px;
+  font-size: 25px;
+  color: black;
+  margin-left: -240px;
+  width: 240px;
+  padding: 5px;
+  line-height: 25px;
+  box-sizing: border-box;
+}
+
+.g-doc {
+  margin-top: 56px;
+  padding-top: 24px;
+  display: flex;
+}
+
+.curproject-name {
+  font-size: 42px;
+}
+
+.m-header {
+  background: #32363a;
+  height: 56px;
+  line-height: 56px;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.m-header .title {
+  font-size: 22px;
+  color: #fff;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  margin-left: 16px;
+  padding: 0;
+  line-height: 56px;
+  border: none;
+}
+.m-header .nav {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  right: 32px;
+  top: 0;
+}
+.m-header .nav a {
+  color: #fff;
+  margin-left: 16px;
+  padding: 8px;
+  transition: color .2s;
+}
+.m-header .nav a:hover {
+  color: #59d69d;
+}
+
+.m-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*# sourceMappingURL=defaultTheme.css.map */
+</style>
+      </head>
+      <body>
+        <div class="m-header">
+          <a href="#" style="display: inherit;"><svg class="svg" width="32px" height="32px" viewBox="0 0 64 64" version="1.1"><title>Icon</title><desc>Created with Sketch.</desc><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#FFFFFF" offset="0%"></stop><stop stop-color="#F2F2F2" offset="100%"></stop></linearGradient><circle id="path-2" cx="31.9988602" cy="31.9988602" r="2.92886048"></circle><filter x="-85.4%" y="-68.3%" width="270.7%" height="270.7%" filterUnits="objectBoundingBox" id="filter-3"><feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.159703351 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix></filter></defs><g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="大屏幕"><g id="Icon"><circle id="Oval-1" fill="url(#linearGradient-1)" cx="32" cy="32" r="32"></circle><path d="M36.7078009,31.8054514 L36.7078009,51.7110548 C36.7078009,54.2844537 34.6258634,56.3695395 32.0579205,56.3695395 C29.4899777,56.3695395 27.4099998,54.0704461 27.4099998,51.7941246 L27.4099998,31.8061972 C27.4099998,29.528395 29.4909575,27.218453 32.0589004,27.230043 C34.6268432,27.241633 36.7078009,29.528395 36.7078009,31.8054514 Z" id="blue" fill="#2359F1" fill-rule="nonzero"></path><path d="M45.2586091,17.1026914 C45.2586091,17.1026914 45.5657231,34.0524383 45.2345291,37.01141 C44.9033351,39.9703817 43.1767091,41.6667796 40.6088126,41.6667796 C38.040916,41.6667796 35.9609757,39.3676862 35.9609757,37.0913646 L35.9609757,17.1034372 C35.9609757,14.825635 38.0418959,12.515693 40.6097924,12.527283 C43.177689,12.538873 45.2586091,14.825635 45.2586091,17.1026914 Z" id="green" fill="#57CF27" fill-rule="nonzero" transform="translate(40.674608, 27.097010) rotate(60.000000) translate(-40.674608, -27.097010) "></path><path d="M28.0410158,17.0465598 L28.0410158,36.9521632 C28.0410158,39.525562 25.9591158,41.6106479 23.3912193,41.6106479 C20.8233227,41.6106479 18.7433824,39.3115545 18.7433824,37.035233 L18.7433824,17.0473055 C18.7433824,14.7695034 20.8243026,12.4595614 23.3921991,12.4711513 C25.9600956,12.4827413 28.0410158,14.7695034 28.0410158,17.0465598 Z" id="red" fill="#FF561B" fill-rule="nonzero" transform="translate(23.392199, 27.040878) rotate(-60.000000) translate(-23.392199, -27.040878) "></path><g id="inner-round"><use fill="black" fill-opacity="1" filter="url(#filter-3)" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use><use fill="#F7F7F7" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use></g></g></g></g></svg></a>
+          <a href="#"><h1 class="title">YAPI 接口文档</h1></a>
+          <div class="nav">
+            <a href="https://yapi.ymfe.org/">YApi</a>
+          </div>
+        </div>
+        <div class="g-doc">
+          <div class="table-of-contents"><ul><li><a href="#u516cu5171u5206u7c7b">公共分类</a><ul><li><a href="#2020u540eu53f0u9996u98750a3ca20id3d2020u540eu53f0u9996u98753e203ca3e">  后台首页
+<a id=  后台首页> </a></a></li></ul></li><li><a href="#u5e97u94fau5ba1u6838">店铺审核</a><ul><li><a href="#u5708u4e3bu5217u88680a3ca20id3du5708u4e3bu5217u88683e203ca3e">圈主列表
+<a id=圈主列表> </a></a></li><li><a href="#u5ba1u6838u5546u5bb6u5e97uff08u67e5u770buff090a3ca20id3du5ba1u6838u5546u5bb6u5e97uff08u67e5u770buff093e203ca3e">审核商家店（查看）
+<a id=审核商家店（查看）> </a></a></li><li><a href="#u5df2u5ba120u5f85u5ba120u5e97u94fau5217u88680a3ca20id3du5df2u5ba120u5f85u5ba120u5e97u94fau5217u88683e203ca3e">已审 待审 店铺列表
+<a id=已审 待审 店铺列表> </a></a></li><li><a href="#u5e97u94fau5ba1u6838u63d0u4ea40a3ca20id3du5e97u94fau5ba1u6838u63d0u4ea43e203ca3e">店铺审核提交
+<a id=店铺审核提交> </a></a></li></ul></li><li><a href="#u7edfu8ba1">统计</a><ul><li><a href="#u6536u76cau7edfu8ba10a3ca20id3du6536u76cau7edfu8ba13e203ca3e">收益统计
+<a id=收益统计> </a></a></li></ul></li><li><a href="#u7ecfu7eaau4ebau7ba1u7406">经纪人管理</a><ul><li><a href="#u5220u9664u7ecfu7eaau4eba0a3ca20id3du5220u9664u7ecfu7eaau4eba3e203ca3e">删除经纪人
+<a id=删除经纪人> </a></a></li><li><a href="#u7ecfu7eaau4ebau4f63u91d1u660eu7ec60a3ca20id3du7ecfu7eaau4ebau4f63u91d1u660eu7ec63e203ca3e">经纪人佣金明细
+<a id=经纪人佣金明细> </a></a></li><li><a href="#u7ecfu7eaau4ebau5217u88680a3ca20id3du7ecfu7eaau4ebau5217u88683e203ca3e">经纪人列表
+<a id=经纪人列表> </a></a></li><li><a href="#u7ecfu7eaau4ebau62c9u65b0u7edfu8ba10a3ca20id3du7ecfu7eaau4ebau62c9u65b0u7edfu8ba13e203ca3e">经纪人拉新统计
+<a id=经纪人拉新统计> </a></a></li><li><a href="#u7ecfu7eaau4ebau7ba1u7406u9996u98750a3ca20id3du7ecfu7eaau4ebau7ba1u7406u9996u98753e203ca3e">经纪人管理首页
+<a id=经纪人管理首页> </a></a></li><li><a href="#u8bbeu7f6eu5708u4e3bu4e3au7ecfu7eaau4eba0a3ca20id3du8bbeu7f6eu5708u4e3bu4e3au7ecfu7eaau4eba3e203ca3e">设置圈主为经纪人
+<a id=设置圈主为经纪人> </a></a></li></ul></li><li><a href="#u4ee3u7406u5546u9996u9875u4ee5u53cau6d3bu52a8">代理商首页以及活动</a><ul><li><a href="#u62c9u65b0u4f63u91d1u8bbeu7f6e0a3ca20id3du62c9u65b0u4f63u91d1u8bbeu7f6e3e203ca3e">拉新佣金设置
+<a id=拉新佣金设置> </a></a></li><li><a href="#u8bbeu7f6e28u67e5u8be2290a3ca20id3du8bbeu7f6e28u67e5u8be2293e203ca3e">设置(查询)
+<a id=设置(查询)> </a></a></li></ul></li><li><a href="#u6d3bu52a8">活动</a><ul><li><a href="#u5220u9664u6d3bu52a80a3ca20id3du5220u9664u6d3bu52a83e203ca3e">删除活动
+<a id=删除活动> </a></a></li><li><a href="#u65b0u589eu6216u7f16u8f91u6d3bu52a80a3ca20id3du65b0u589eu6216u7f16u8f91u6d3bu52a83e203ca3e">新增或编辑活动
+<a id=新增或编辑活动> </a></a></li><li><a href="#u67e5u8be2u5355u4e2au6d3bu52a80a3ca20id3du67e5u8be2u5355u4e2au6d3bu52a83e203ca3e">查询单个活动
+<a id=查询单个活动> </a></a></li><li><a href="#u6d3bu52a8u5217u88680a3ca20id3du6d3bu52a8u5217u88683e203ca3e">活动列表
+<a id=活动列表> </a></a></li></ul></li></ul></div>
+          <div id="right" class="content-right">
+           <h1 class="curproject-name"> 代理商后台 </h1> 
+<h1 id="u516cu5171u5206u7c7b">公共分类</h1>
+<p></p>
+<h2 id="2020u540eu53f0u9996u98750a3ca20id3d2020u540eu53f0u9996u98753e203ca3e">  后台首页
+<a id=  后台首页> </a></h2>
+<p></p>
+<h3 id="">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/index</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"userVo": {
+			"headImage": "",
+			"nickName": "qun.xu",
+			"userType": "普通用户",
+			"inviteCode": "abcd",
+			"balance": 0,
+			"mobile": "15679005395",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "uuid":"44444"
+		},
+		"regionVo": {
+			"code": "360100",
+			"name": "南昌市",
+			"level": 2,
+			"shortName": "南昌",
+			"fullName": "南昌, 江西",
+			"enName": "NanChang",
+			"enShortName": "NC"
+		},
+		"statisticsVo": {
+			"totalCommission ": 100,//总佣金
+			"noCheckedMessage": 10 //消息数0 时显示暂无消息
+
+		}
+	}
+}
+</code></pre>
+<h3 id="-2">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-3">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h1 id="u5e97u94fau5ba1u6838">店铺审核</h1>
+<p></p>
+<h2 id="u5708u4e3bu5217u88680a3ca20id3du5708u4e3bu5217u88683e203ca3e">圈主列表
+<a id=圈主列表> </a></h2>
+<p></p>
+<h3 id="-4">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/circle/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{
+			
+				"userVo": {
+					"headImage": "",
+					"nickName": "qun.xu",
+					"userType": "普通用户",
+					"inviteCode": "abcd",
+					"balance": 0,
+					"mobile": "15679005395",
+					"uuid": "44444"
+				},
+				"id": 122,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status":1 //正常 2  过期  -1 非圈主,3 经纪人
+				"creatTimeStr": "2019-07-20", 
+				"checkResultStr": "过期",
+				"expireDate": "2019-07-20"
+
+		}]
+	}
+}
+</code></pre>
+<h3 id="-5">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mobile</td>
+<td>否</td>
+<td></td>
+<td>手机号</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>是</td>
+<td></td>
+<td>1正常 2  过期</td>
+</tr>
+<tr>
+<td>expireDate</td>
+<td>是</td>
+<td></td>
+<td>过期时间 年+月</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-6">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5ba1u6838u5546u5bb6u5e97uff08u67e5u770buff090a3ca20id3du5ba1u6838u5546u5bb6u5e97uff08u67e5u770buff093e203ca3e">审核商家店（查看）
+<a id=审核商家店（查看）> </a></h2>
+<p></p>
+<h3 id="-7">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/apply/view</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {		
+			"userVo": {
+				"headImage": "",
+				"nickName": "qun.xu",
+				"userType": "普通用户",
+				"inviteCode": "abcd",
+				"balance": 0,
+				"mobile": "15679005395",
+				"uuid": "44444"
+			},
+			"id": 122,
+			"creatTimeStr": "2019-07-20",		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "status": 1,// 1 我审核过 -1 等待我审核的
+			"checkResult": 0, //审核结果0 不通过 1 通过
+			"checkResultStr": "通过" //审核结果
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "checkOr":"156666",//审核人
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "checkDate":"2019-07-20"
+		},
+		"businessLicense": {//营业执照
+			"link": "",
+			"result": 1, //0：不通过、1：通过
+			"detail": "" //驳回原因
+
+		},
+		"shopFacade": { //门店照片
+			"link": "", //图像
+			"result": 1,//0：不通过、1：通过
+			"detail": ""
+		}
+
+
+}
+</code></pre>
+<h3 id="-8">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>applyId</td>
+<td>是</td>
+<td></td>
+<td>申请id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-9">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5df2u5ba120u5f85u5ba120u5e97u94fau5217u88680a3ca20id3du5df2u5ba120u5f85u5ba120u5e97u94fau5217u88683e203ca3e">已审 待审 店铺列表
+<a id=已审 待审 店铺列表> </a></h2>
+<p></p>
+<h3 id="-10">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/apply/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{
+			
+				"userVo": {
+					"headImage": "",
+					"nickName": "qun.xu",
+					"userType": "普通用户",
+					"inviteCode": "abcd",
+					"balance": 0,
+					"mobile": "15679005395",
+					"uuid": "44444"
+				},
+				"id": 122,
+				"creatTimeStr": "2019-07-20", 
+				"status": 1,// 1 我审核过 -1 待审核
+				"checkResult": 0, //审核结果0 不通过 1 通过
+				"checkResultStr": "通过" //审核结果		
+		}]
+	}
+}
+</code></pre>
+<h3 id="-11">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>否</td>
+<td></td>
+<td>-1 审核不通过  1 审核通过</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>否</td>
+<td>yyyy-MM</td>
+<td>年+月</td>
+</tr>
+<tr>
+<td>checkResult</td>
+<td>否</td>
+<td></td>
+<td>false 我的待审  true 我的已审 ，默认false</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>是</td>
+<td></td>
+<td>代理商区域</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-12">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u5e97u94fau5ba1u6838u63d0u4ea40a3ca20id3du5e97u94fau5ba1u6838u63d0u4ea43e203ca3e">店铺审核提交
+<a id=店铺审核提交> </a></h2>
+<p></p>
+<h3 id="-13">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/audit</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>
+</code></pre>
+<h3 id="-14">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>applyId</td>
+<td>是</td>
+<td></td>
+<td>申请id</td>
+</tr>
+<tr>
+<td>businessResult</td>
+<td>否</td>
+<td></td>
+<td>营业执照  true 驳回，  默认false 或null 通过</td>
+</tr>
+<tr>
+<td>businessDetail</td>
+<td>否</td>
+<td></td>
+<td>营业执照驳回原因</td>
+</tr>
+<tr>
+<td>shopFacadeResult</td>
+<td>否</td>
+<td></td>
+<td>门店照片  true 驳回，  默认false 或null  是 通过</td>
+</tr>
+<tr>
+<td>shopFacadeDetail</td>
+<td>否</td>
+<td></td>
+<td>门店照片  驳回原因</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-15">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h1 id="u7edfu8ba1">统计</h1>
+<p></p>
+<h2 id="u6536u76cau7edfu8ba10a3ca20id3du6536u76cau7edfu8ba13e203ca3e">收益统计
+<a id=收益统计> </a></h2>
+<p></p>
+<h3 id="-16">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/statistics</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+   "totalCommission": 0.23,
+    "page": {
+      "pageSize": 20,
+      "totalPage": 1,
+      "totalResult": 2,
+      "currentPage": 1,
+      "currentResult": 0,
+      "list": [
+        {
+          "userVo": {
+            "userId": 911,
+            "uuid": "wuxinyu",
+            "headImage": "http://static.caibinshenghuo.com/b3f0599f28a5667004c2cb7d96b69540.jpg",
+            "mobile": "13755525459",
+            "userType": 2,
+            "nickName": "测试滋滋滋wxy",
+            "balance": 100000.02
+          },
+          "orderNum": "516834848637598368", //订单号
+          "payMoney": 2.6, //付款钱数
+          "commissionAmount": 0.23, //分钱数
+          "status": null,
+          "statusStr": "已结算", //状态
+          "time": "2019-07-05", //时间
+          "categoryId": null,
+          "userId": null
+        }
+      ]
+    }
+
+  }
+}
+</code></pre>
+<h3 id="-17">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchType</td>
+<td>否</td>
+<td></td>
+<td>userVip,mall,charge,regionOwn</td>
+</tr>
+<tr>
+<td>creatTime</td>
+<td>否</td>
+<td></td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>status</td>
+<td>否</td>
+<td></td>
+<td>订单状态 1 已结算 2 未结算 -1 失效</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-18">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h1 id="u7ecfu7eaau4ebau7ba1u7406">经纪人管理</h1>
+<p></p>
+<h2 id="u5220u9664u7ecfu7eaau4eba0a3ca20id3du5220u9664u7ecfu7eaau4eba3e203ca3e">删除经纪人
+<a id=删除经纪人> </a></h2>
+<p></p>
+<h3 id="-19">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/remove/agent</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-20">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>agentId</td>
+<td>是</td>
+<td></td>
+<td>需要删除的经纪人id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-21">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u7ecfu7eaau4ebau4f63u91d1u660eu7ec60a3ca20id3du7ecfu7eaau4ebau4f63u91d1u660eu7ec63e203ca3e">经纪人佣金明细
+<a id=经纪人佣金明细> </a></h2>
+<p></p>
+<h3 id="-22">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/agent/divide/detail</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{
+			"vipUserVo": {
+				"headImage": "",
+				"nickName": "qun.xu",
+				"userType": "普通用户",
+				"inviteCode": "abcd",
+				"balance": 0,
+				"mobile": "15679005395",
+				"uuid": "44444"
+			},
+			"payTime": "2019-04-20",
+			"totalCommission": 200,
+			"agentUser": {
+				"headImage": "",
+				"nickName": "qun.xu",
+				"userType": "普通用户",
+				"inviteCode": "abcd",
+				"balance": 0,
+				"mobile": "15679005395",
+				"uuid": "44444"
+			}
+		}]
+	}
+}
+</code></pre>
+<h3 id="-23">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payTime</td>
+<td>否</td>
+<td></td>
+<td>yyyy-MM</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="u7ecfu7eaau4ebau5217u88680a3ca20id3du7ecfu7eaau4ebau5217u88683e203ca3e">经纪人列表
+<a id=经纪人列表> </a></h2>
+<p></p>
+<h3 id="-24">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/agent/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{
+
+			"userVo": {
+				"headImage": "",
+				"nickName": "qun.xu",
+				"userType": "普通用户",
+				"inviteCode": "abcd",
+				"balance": 0,
+				"mobile": "15679005395",
+				"uuid": "44444"
+			},
+			"createTime": "2019-02-08",
+			"agentId": 12,		
+
+		}]
+	}
+}
+</code></pre>
+<h3 id="-25">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-26">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u7ecfu7eaau4ebau62c9u65b0u7edfu8ba10a3ca20id3du7ecfu7eaau4ebau62c9u65b0u7edfu8ba13e203ca3e">经纪人拉新统计
+<a id=经纪人拉新统计> </a></h2>
+<p></p>
+<h3 id="-27">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/agent/commission/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{
+
+			"userVo": {
+				"headImage": "",
+				"nickName": "qun.xu",
+				"userType": "普通用户",
+				"inviteCode": "abcd",
+				"balance": 0,
+				"mobile": "15679005395",
+				"uuid": "44444"
+			},
+			"pullMemberNum": 10, //拉新人数
+			"totalCommission": 200 //总分佣
+		}]
+	}
+}
+</code></pre>
+<h3 id="-28">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-29">返回数据</h3>
+<pre><code class="language-javascript">{&quot;type&quot;:&quot;object&quot;,&quot;title&quot;:&quot;empty object&quot;,&quot;properties&quot;:{}}
+</code></pre>
+<h2 id="u7ecfu7eaau4ebau7ba1u7406u9996u98750a3ca20id3du7ecfu7eaau4ebau7ba1u7406u9996u98753e203ca3e">经纪人管理首页
+<a id=经纪人管理首页> </a></h2>
+<p></p>
+<h3 id="-30">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/agent/index</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+	"agentNum":12, //代理人数量
+	"isNeedAddBtn":true //是否需要增加按钮
+
+	}
+}
+</code></pre>
+<h3 id="-31">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-32">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u8bbeu7f6eu5708u4e3bu4e3au7ecfu7eaau4eba0a3ca20id3du8bbeu7f6eu5708u4e3bu4e3au7ecfu7eaau4eba3e203ca3e">设置圈主为经纪人
+<a id=设置圈主为经纪人> </a></h2>
+<p></p>
+<h3 id="-33">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/setting/agent</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-34">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userIds</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>多个用户id[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-35">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h1 id="u4ee3u7406u5546u9996u9875u4ee5u53cau6d3bu52a8">代理商首页以及活动</h1>
+<p></p>
+<h2 id="u62c9u65b0u4f63u91d1u8bbeu7f6e0a3ca20id3du62c9u65b0u4f63u91d1u8bbeu7f6e3e203ca3e">拉新佣金设置
+<a id=拉新佣金设置> </a></h2>
+<p></p>
+<h3 id="-36">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/commission/setting</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-37">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activityId</td>
+<td>是</td>
+<td></td>
+<td>活动id</td>
+</tr>
+<tr>
+<td>commission</td>
+<td>是</td>
+<td></td>
+<td>佣金</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u8bbeu7f6e28u67e5u8be2290a3ca20id3du8bbeu7f6e28u67e5u8be2293e203ca3e">设置(查询)
+<a id=设置(查询)> </a></h2>
+<p></p>
+<h3 id="-38">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/find/setting</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"commission": 1, //；拉新佣金
+		"pullMemberStr": "未设置", 
+		"activityId": 1, //拉新佣金id
+		"isSettingActivity ": true //是否设置活动
+	}
+}
+</code></pre>
+<h3 id="-39">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="u6d3bu52a8">活动</h1>
+<p></p>
+<h2 id="u5220u9664u6d3bu52a80a3ca20id3du5220u9664u6d3bu52a83e203ca3e">删除活动
+<a id=删除活动> </a></h2>
+<p></p>
+<h3 id="-40">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/activity/remove</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-41">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>actityId</td>
+<td>是</td>
+<td></td>
+<td>活动Id</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u65b0u589eu6216u7f16u8f91u6d3bu52a80a3ca20id3du65b0u589eu6216u7f16u8f91u6d3bu52a83e203ca3e">新增或编辑活动
+<a id=新增或编辑活动> </a></h2>
+<p></p>
+<h3 id="-42">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/add/activity</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<h3 id="-43">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>标题</td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>开始时间</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>结束时间</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>认证圈主价格</td>
+</tr>
+<tr>
+<td>commission</td>
+<td>text</td>
+<td>是</td>
+<td></td>
+<td>拉新佣金</td>
+</tr>
+<tr>
+<td>quota</td>
+<td>text</td>
+<td>否</td>
+<td></td>
+<td>活动名额</td>
+</tr>
+<tr>
+<td>activityId</td>
+<td>text</td>
+<td>否</td>
+<td></td>
+<td>活动id</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-44">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u67e5u8be2u5355u4e2au6d3bu52a80a3ca20id3du67e5u8be2u5355u4e2au6d3bu52a83e203ca3e">查询单个活动
+<a id=查询单个活动> </a></h2>
+<p></p>
+<h3 id="-45">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/activity/findById</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "activityId": 3,
+    "status": 3,
+    "beginTime": "2019-12-06",
+    "endTime": "2019-12-07",
+    "amount": 360,
+    "commission": 304,
+    "days": 360,
+    "quota": 0,
+    "statusStr": "已取消"
+  }
+}
+</code></pre>
+<h3 id="-46">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activityId</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-47">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+<h2 id="u6d3bu52a8u5217u88680a3ca20id3du6d3bu52a8u5217u88683e203ca3e">活动列表
+<a id=活动列表> </a></h2>
+<p></p>
+<h3 id="-48">基本信息</h3>
+<p><strong>Path：</strong> /caibin/partner/manger/activity/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>接口描述：</strong></p>
+<pre><code>{
+	"code": 0,
+	"msg": "OK",
+	"data": {
+		"pageSize": 1,
+		"totalPage": 206,
+		"totalResult": 206,
+		"currentPage": 1,
+		"currentResult": 0,
+		"list": [{			
+				"activityId": 11,
+				"status": 1, //0：未开始、1：进行中、2：已结束、3：已取消
+				"beginTime": "2019-01-12",
+				"endTime": "2019-01-12",
+				"amount": 444, //认证圈主价格
+				"commission": 2222, //拉新佣金
+				"days": 555,
+				"quota": 0 //限额，0为无限制
+			
+
+		}]
+	}
+}
+</code></pre>
+<h3 id="-49">请求参数</h3>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>regionCode</td>
+<td></td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentPage</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="-50">返回数据</h3>
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody">
+               </tbody>
+              </table>
+
+            <footer class="m-footer">
+              <p>Build by <a href="https://ymfe.org/">YMFE</a>.</p>
+            </footer>
+          </div>
+        </div>
+      </body>
+      </html>
+      
